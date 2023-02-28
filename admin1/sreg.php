@@ -281,9 +281,9 @@ if(isset($_POST['submit']))
     {
         
         
-        $data="SELECT * FROM table_sitterreg";
+        $data="SELECT * FROM tbl_sitterreg";
         $c=0;
-        $sd="SELECT * FROM table_sitterreg";
+        $sd="SELECT * FROM tbl_sitterreg";
         $p=mysql_query($sd,$con);
         while($row=mysql_fetch_array($p))
         {
@@ -316,7 +316,7 @@ if(isset($_POST['submit']))
 				move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"],$target_dir1.$target_file1);    //uploading
 				$file2="profile_pic/".$target_file1;      //dbfield info
 			
-            $sql="INSERT INTO `table_sitterreg` VALUES ('$id','$name','$phno','$ano','$mailid','$dob','$file','$gender','$experience','$category','$hname','$sname','$zipcode','$city','$state','$country','$file2','1')";
+            $sql="INSERT INTO `tbl_sitterreg` VALUES ('$id','$name','$phno','$ano','$mailid','$dob','$file','$gender','$experience','$category','$hname','$sname','$zipcode','$city','$state','$country','$file2','1')";
             if(mysql_query($sql,$con))
             {
                 
