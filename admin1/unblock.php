@@ -1,0 +1,14 @@
+<?php
+
+
+$id=$_GET['id'];
+
+include '../dbconnect.php';
+$sql="UPDATE `table_sitterreg` SET s_sts ='1' WHERE mailid ='$id'";
+if(mysql_query($sql,$con))
+	echo "<script>alert(' Unblocked!');location.href='index.php';</script>";
+     else
+     	{"<script>alert('error!');location.href='index.php';</script>";
+		}
+
+?>
