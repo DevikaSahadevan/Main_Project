@@ -423,7 +423,7 @@ if(isset($_POST['submit']))
                   <!-- New Customers -->
                   <div class="card card-table-border-none">
                     <div class="card-header justify-content-between ">
-                      <h2>View Previously Added</h2>
+                      <h2>Nutritious Food Items</h2>
                       
                     </div>
 					

@@ -102,12 +102,11 @@ body {
 
                 <td><div class='text-center'><a href='check-attendance.php?id=<?php echo $row['id'];?>'><button class='btn btn-info'>CHECK IN<i class='fas fa-map-marker-alt'></i></button> </a></div></td>
              
-                <?php }
-                
-              ?>      
+                <?php } ?>      
               </tbody>
              
-           <?php $cnt++; } ?>
+           <?php $cnt++; 
+          ?>
            
            
 

@@ -177,42 +177,42 @@
 										<div class="col-sm-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="hname" name="hname" placeholder="House Name" 
-												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." required>
+												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." >
                                                 <label for="subject">House Name</label>
                                             </div>
                                         </div>
 										<div class="col-sm-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="sname" name="sname" placeholder="Street Name" 
-												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." required>
+												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." >
                                                 <label for="subject">Street Name</label>
                                             </div>
                                         </div>
 										<div class="col-sm-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="zipcode" name="zipcode" placeholder="Zipcode" 
-												pattern='[0-9]{3,10}' title="Minimum 3 & maximum 30 characters. Letters only permitted." required>
+												pattern='[0-9]{3,10}' title="Minimum 3 & maximum 30 characters. Letters only permitted." >
                                                 <label for="subject">Zipcode</label>
                                             </div>
                                         </div>
 										<div class="col-sm-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="city" name="city" placeholder="City" 
-												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." required>
+												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." >
                                                 <label for="subject">City</label>
                                             </div>
                                         </div>
 										<div class="col-sm-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="state" name="state" placeholder="State" 
-												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." required>
+												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." >
                                                 <label for="subject">State</label>
                                             </div>
                                         </div>
 										<div class="col-sm-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="country" name="country" placeholder="Country" 
-												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." required>
+												//pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." >
                                                 <label for="subject">Country</label>
                                             </div>
                                         </div>
@@ -284,13 +284,13 @@ if(isset($_POST['submit']))
         $data="SELECT * FROM tbl_sitterreg";
         $c=0;
         $sd="SELECT * FROM tbl_sitterreg";
-        $p=mysql_query($sd,$con);
+        $p=mysql_query($con,$sd);
         while($row=mysql_fetch_array($p))
         {
             $c++;
         }
         $c++;
-        $sq=mysql_query($data,$con);
+        $sq=mysql_query($con,$data);
         while($row=mysql_fetch_array($sq))
         {
             if($row['mailid']==$mailid||$row['phno']==$phno)
@@ -316,8 +316,8 @@ if(isset($_POST['submit']))
 				move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"],$target_dir1.$target_file1);    //uploading
 				$file2="profile_pic/".$target_file1;      //dbfield info
 			
-            $sql="INSERT INTO `tbl_sitterreg` VALUES ('$id','$name','$phno','$ano','$mailid','$dob','$file','$gender','$experience','$category','$hname','$sname','$zipcode','$city','$state','$country','$file2','1')";
-            if(mysql_query($sql,$con))
+            $sql="INSERT INTO `tbl_sitterreg` VALUES ('$name','$phno','$ano','$mailid','$dob','$file','$gender','$experience','$category','$hname','$sname','$zipcode','$city','$state','$country','$file2','1')";
+            if(mysql_query($sql, $con))
             {
                 
                     echo"<script>alert('Account created ! Please login ');</script>";

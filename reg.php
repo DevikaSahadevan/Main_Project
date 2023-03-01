@@ -430,8 +430,6 @@ if(isset($_POST['reg']))
 	$sname=$_POST['sname'];
 	$zipcode=$_POST['zipcode'];
 	$city=$_POST['city'];
-	$state=$_POST['state'];
-	$country=$_POST['country'];
 	$password=$_POST['password'];
 	$cpass=$_POST['cpassword'];
 	
@@ -491,7 +489,7 @@ if(isset($_POST['reg']))
         }
         else if($flag==0)
         {
-            $sql="INSERT INTO `tbl_registration`VALUES ('$id','$name','$phno','$ano','$mailid','$cname','$dob','$gender','$hname','$sname','$zipcode','$city','$state','$country')";
+            $sql="INSERT INTO `tbl_registration`VALUES ('$id','$name','$phno','$ano','$mailid','$cname','$dob','$gender','$hname','$sname','$zipcode','$city')";
             if(mysql_query($sql,$con))
             {
                 $sql1="INSERT INTO `tbl_login`VALUES ('$lid','$mailid','$password','user',0)";

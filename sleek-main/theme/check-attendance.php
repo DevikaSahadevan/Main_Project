@@ -4,12 +4,6 @@
     include 'dbconnect.php';
 
 	$sitter_res= mysql_query("SELECT * from tbl_sitterreg");
-	if($sitter_res && mysql_num_rows($sitter_res) > 0){
-	   $sitter_check=true;
-	}
-	else{
-		$sitter_check= false;
-	}
 	
 ?>
 
@@ -125,3 +119,11 @@ window.location="attendance.php";
 <script type="text/javascript">
 window.location="../attendance.php";
 </script> -->
+<!-- 
+// if($sitter_res && mysql_num_rows($sitter_res) > 0){
+	//    $sitter_check=true;
+	// }
+	// else{
+	// 	$sitter_check= false;
+	// }
+	 -->
