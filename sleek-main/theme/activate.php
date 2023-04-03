@@ -2,18 +2,18 @@
 
 include 'dbconnect.php';
 
-if(isset($_GET['sid'])){
+if(isset($_POST['present'])){
 
-  echo $id =$_GET['sid'];
-  
+    echo $id ='1';
+    $date=$_POST['date'];
+   exit;
+   $bil="INSERT INTO tbl_attendence(`baby`,`att_date`) VALUES('$id','$date')";
+   
+   $bil_run = mysql_query($bil);
 
-  $act = "UPDATE tbl_sitterreg SET attendance='active' WHERE `sitter_id`='$id'";
+  if($bil_run){
 
-  $act_run = mysql_query($act);
-
-  if($act_run){
-
-    echo '<script>alert("Activated");</script>';
+    echo '<script>alert("Present");</script>';
 
     echo '<script>window.location.href="check-attendance.php"</script>';
 

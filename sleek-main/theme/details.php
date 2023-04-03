@@ -433,44 +433,20 @@
   <tr><td>City :</td><td><?php echo $row['city'];?></td></tr>
     <tr><td><a href="approve.php?id=<?php echo $row['g_mailid'];?>" id="approve">Approve</a></td>
   <td><a href="reject.php?id=<?php echo $row['g_mailid'];?>" id="reject">Reject</a></td></tr>
-
-
 </table>
 <?php
         }
 ?>        
                     </div>
                   </div>
-
 			</div>
-
-			
 		</div>
-
-
-	
 </div>
-
-
-	
-
-		
-
-		
-
-		
-
-
-
-
-
       </div> <!-- End Content -->
     </div> <!-- End Content Wrapper -->
     
     
     <!-- Footer -->
-   
-
     </div> <!-- End Page Wrapper -->
   </div> <!-- End Wrapper -->
 
@@ -486,41 +462,15 @@
     <script src="assets/plugins/jquery/jquery.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/plugins/simplebar/simplebar.min.js"></script>
- 
     <script src='assets/plugins/charts/Chart.min.js'></script>
     <script src='assets/js/chart.js'></script>
-
-    
-    
-
     <script src='assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js'></script>
     <script src='assets/plugins/jvectormap/jquery-jvectormap-world-mill.js'></script>
     <script src='assets/js/vector-map.js'></script>
-
     <script src='assets/plugins/daterangepicker/moment.min.js'></script>
     <script src='assets/plugins/daterangepicker/daterangepicker.js'></script>
     <script src='assets/js/date-range.js'></script>
-
-    
-
-    
-    
-    
-    
-
     <script src='assets/plugins/toastr/toastr.min.js'></script>
-
-    
-
-    
-    
-    
-
-    
-    
-
-    
-
     <script src="assets/js/sleek.js"></script>
   <link href="assets/options/optionswitch.css" rel="stylesheet">
 <script src="assets/options/optionswitcher.js"></script>

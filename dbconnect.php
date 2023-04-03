@@ -2,7 +2,7 @@
 $con=mysql_connect("localhost","root","");
  mysql_select_db("babysitter",$con);
  
- 
+
  function autoid($tablename,$field)
 {
 	

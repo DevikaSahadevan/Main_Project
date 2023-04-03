@@ -121,8 +121,9 @@
                                     </div>
                                 </form>
 								<?php
-							  include '../dbconnect.php';
-							 if(isset($_POST['submit']))
+                                 
+                                    include '../dbconnect.php';
+                            if(isset($_POST['submit']))
 							 {
 								 
 								$id=autoid("tbl_feedback","f_id");
@@ -140,7 +141,7 @@
 							 	else
 								{
 									echo "<script>alert('not Added!');location.href='feedback.php';</script>";
-												//echo "<script>alert('$sql');</script>";
+												echo "<script>alert('$sql');</script>";
 								}
 							 }	
 								

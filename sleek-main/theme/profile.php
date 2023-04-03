@@ -420,39 +420,19 @@
 				<label class="text-dark font-weight-medium" for="">Password</label>
 				<div class="input-group mb-2">
 
-					<input type="text" class="form-control" id="password" name="password" value="<?php echo $row['password'];?>" 
+					<input type="password" class="form-control" id="password" name="password" value="<?php echo $row['password'];?>" 
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
 					title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"required
 					disabled="disabled">
 				</div>
 			</div>
-			
-			
-			
 			<a href="update.php?id=<?php echo $row['username'];?>" id="approve">Update</a>
 			<?php
 			  }
 ?>
 		</div>
 	</div></form>
-
-
-	
 </div>
-
-
-	
-
-		
-
-		
-
-		
-
-
-
-
-
       </div> <!-- End Content -->
     </div> <!-- End Content Wrapper -->
     
@@ -475,44 +455,18 @@
     <script src="assets/plugins/jquery/jquery.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/plugins/simplebar/simplebar.min.js"></script>
- 
     <script src='assets/plugins/charts/Chart.min.js'></script>
     <script src='assets/js/chart.js'></script>
-
-    
-    
-
     <script src='assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js'></script>
     <script src='assets/plugins/jvectormap/jquery-jvectormap-world-mill.js'></script>
     <script src='assets/js/vector-map.js'></script>
-
     <script src='assets/plugins/daterangepicker/moment.min.js'></script>
     <script src='assets/plugins/daterangepicker/daterangepicker.js'></script>
     <script src='assets/js/date-range.js'></script>
-
-    
-
-    
-    
-    
-    
-
     <script src='assets/plugins/toastr/toastr.min.js'></script>
-
-    
-
-    
-    
-    
-
-    
-    
-
-    
-
     <script src="assets/js/sleek.js"></script>
-  <link href="assets/options/optionswitch.css" rel="stylesheet">
-<script src="assets/options/optionswitcher.js"></script>
+    <link href="assets/options/optionswitch.css" rel="stylesheet">
+    <script src="assets/options/optionswitcher.js"></script>
 </body>
 </html>
 

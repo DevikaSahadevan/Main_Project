@@ -190,28 +190,7 @@
         document.getElementById('citymsg').style.display = "none";
     }
 
-    var nameexpr = /^[a-zA-Z\-]+$/;
-    var nm = document.getElementById("state").value;
-    if(nm!="" && nameexpr.test(nm)==false){
-        document.getElementById('statemsg').style.display = "block";
-        document.getElementById('statemsg').innerHTML = "Invalid State";
-        return false;
-    }
-    else{
-        document.getElementById('statemsg').style.display = "none";
-    }
-
-    var nameexpr = /^[a-zA-Z\-]+$/;
-    var nm = document.getElementById("country").value;
-    if(nm!="" && nameexpr.test(nm)==false){
-        document.getElementById('cntrymsg').style.display = "block";
-        document.getElementById('cntrymsg').innerHTML = "Invalid Country";
-        return false;
-    }
-    else{
-        document.getElementById('cntrymsg').style.display = "none";
-    }
-
+   
     var pass = document.getElementById("password").value;
     var cpass = document.getElementById("cpass").value;
     if(cpass!=""&&pass!=cpass){
@@ -293,7 +272,7 @@
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="name" name="name" placeholder="Your Name" 
 												pattern='[a-zA-Z\s]{3,30}' title="Minimum 3 & maximum 30 characters. Letters only permitted." required onblur="return Val()" onkeyup="return Val()">
-                                                <label for="name">Your Name</label>
+                                                <label for="name">Parent Name</label>
                                                 <span id="namemsg" style="color: red;"></span>
                                             </div>
                                         </div>
@@ -331,16 +310,17 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="date" class="form-control border-0" id="dob" name="dob" required>
+                                                <input type="date" class="form-control border-0" id="dob" name="dob" min="2016-01-01" max="2019-12-31" required>
                                                 <label for="subject">Date of birth</label>
+                                                <span id="dob" style="color: red"></span> 
                                             </div>
                                         </div>
 										<div class="col-sm-6">
                                             <div class="form-floating">
 												<select class="form-control border-0" id="gender" name="gender">
 												<option></option>
-												<option value="male">Male</option>
-												<option value="female">Female</option>
+												<option value="male">Boy</option>
+												<option value="female">Girl</option>
 												</select>
                                                 <label for="subject">Child Gender</label>
                                             </div>
@@ -416,7 +396,7 @@ if(isset($_POST['reg']))
 	$lid=autoid("tbl_login","login_id");
 	
     $flag=0;
-	//$id,$name,$phno,$ano,$mailid,$cname,$dob,$gender,$hname,$sname,$zipcode,$city,$state,$country,$password,$cpassword
+	//$id,$name,$phno,$ano,$mailid,$cname,$dob,$gender,$hname,$sname,$zipcode,$city,$password,$cpassword
     
 	
     $name=$_POST['name'];
@@ -489,7 +469,7 @@ if(isset($_POST['reg']))
         }
         else if($flag==0)
         {
-            $sql="INSERT INTO `tbl_registration`VALUES ('$id','$name','$phno','$ano','$mailid','$cname','$dob','$gender','$hname','$sname','$zipcode','$city')";
+            $sql="INSERT INTO `tbl_registration`VALUES ('$id','$name','$phno','$ano','$mailid','$cname','$dob','$gender','$hname','$sname','$zipcode','$city','absent')";
             if(mysql_query($sql,$con))
             {
                 $sql1="INSERT INTO `tbl_login`VALUES ('$lid','$mailid','$password','user',0)";

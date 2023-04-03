@@ -15,7 +15,6 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Enroll</a>
                         <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
                             <a href="reg.php" class="dropdown-item">Child Enroll</a>
-                            <a href="#" class="dropdown-item">Make Appointment</a>
                         </div>
                     </div>
                    <a href="services.php" class="nav-item nav-link">Services</a>

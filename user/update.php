@@ -119,14 +119,14 @@
                                             <div class="form-floating">
                                                 <input type="email" class="form-control border-0" id="username" name="username" value="<?php echo $row['username'];?>" 
 												 required>
-                                                <label for="subject">House Name</label>
+                                                <label for="subject"> Name</label>
                                             </div>
                                         </div>
 									
 										
 										<div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="password" name="password" value="<?php echo $row['password'];?>" 
+                                                <input type="password" class="form-control border-0" id="password" name="password" value="<?php echo $row['password'];?>" 
 												pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
 												title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"required>
                                                 <label for="subject">Password</label>

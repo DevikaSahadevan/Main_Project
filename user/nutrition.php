@@ -142,7 +142,6 @@
 										
 				
                                         <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" name="submit" type="submit">Add</button>
                                         </div>
                                     </div>
                                 </form>

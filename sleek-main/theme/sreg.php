@@ -66,7 +66,159 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
     NProgress.configure({ showSpinner: false });
     NProgress.start();
   </script>
+<script>
+    function Validateemail() {
+      var email = document.getElementById("email").value;
+      var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+      if (email.length < 3 || email.length > 40) {
+        document.getElementById("email1").innerHTML = "Invalid Email";
+        document.getElementById("email").value = email;
+        document.getElementById("email").style.color = "red";
+        return false;
+      }
+      if (email!="" && !email.match(/^[\w\+\'\.-]+@[\w\'\.-]+\.[a-zA-Z]{2,}$/)) {
+        document.getElementById("email1").innerHTML =
+          "Please enter a valid email";
+        document.getElementById("email").value = email;
+        document.getElementById("email").style.color = "red";
+        return false;
+      } else {
+        document.getElementById("email1").innerHTML = " ";
+        document.getElementById("email").style.color = "green";
+        // return true;
+      }
+    }
+    function Validphone() {
+      var val = document.getElementById("phone").value;
+      if (val!="" && !val.match(/^[789][0-9]{9}$/)) {
+        document.getElementById("msg2").innerHTML =
+          "Only Numbers are allowed and must contain 10 number";
+        document.getElementById("phone").value = val;
+        return false;
+      } else {
+        document.getElementById("msg2").innerHTML = "";
+        //   return true;
+      }
+      
+    }
+    function Validphone()
+                        {
+                        var ph = document.getElementById("phno").value;
+                        var expr = /^[6-9]\d{9}$/;
+                        if(ph!="" && expr.test(ph)==false){
+                            document.getElementById('msg2').style.display = "block";
+                            document.getElementById('msg2').innerHTML = "Invalid Phone number";
+                            return false;
+                        }
+                        else{
+                            document.getElementById('msg2').style.display = "none";
+                        }
+                    }
 
+    function Val() {
+        
+        var nameexpr = /^[a-zA-Z\-]+$/;
+        var nm = document.getElementById("name").value;
+        if(nm!="" && nameexpr.test(nm)==false){
+            document.getElementById('namemsg').style.display = "block";
+            document.getElementById('namemsg').innerHTML = "Invalid Name";
+            return false;
+        }
+        else{
+            document.getElementById('namemsg').style.display = "none";
+        }
+
+                        var ph = document.getElementById("ano").value;
+                        var expr = /^[6-9]\d{9}$/;
+                        if(ph!="" && expr.test(ph)==false){
+                            document.getElementById('anomsg').style.display = "block";
+                            document.getElementById('anomsg').innerHTML = "Invalid Phone number";
+                            return false;
+                        }
+                        else{
+                            document.getElementById('anomsg').style.display = "none";
+                        }
+                        var nameexpr = /^[a-zA-Z\-]+$/;
+        var nm = document.getElementById("cname").value;
+        if(nm!="" && nameexpr.test(nm)==false){
+            document.getElementById('childmsg').style.display = "block";
+            document.getElementById('childmsg').innerHTML = "Invalid child Name";
+            return false;
+        }
+        else{
+            document.getElementById('childmsg').style.display = "none";
+        }
+
+        var nameexpr = /^[a-zA-Z\-]+$/;
+        var nm = document.getElementById("hname").value;
+        if(nm!="" && nameexpr.test(nm)==false){
+            document.getElementById('hmsg').style.display = "block";
+            document.getElementById('hmsg').innerHTML = "Invalid HouseName";
+            return false;
+        }
+        else{
+            document.getElementById('hmsg').style.display = "none";
+        }
+
+        var nameexpr = /^[a-zA-Z\-]+$/;
+        var nm = document.getElementById("sname").value;
+        if(nm!="" && nameexpr.test(nm)==false){
+            document.getElementById('smsg').style.display = "block";
+            document.getElementById('smsg').innerHTML = "Invalid Street Name";
+            return false;
+        }
+        else{
+            document.getElementById('smsg').style.display = "none";
+        }
+
+        var nameexpr = /[0-9]{6}/;
+        var nm = document.getElementById("zipcode").value;
+        if(nm!="" && nameexpr.test(nm)==false){
+            document.getElementById('pinmsg').style.display = "block";
+            document.getElementById('pinmsg').innerHTML = "Invalid pincode";
+            return false;
+        }
+        else{
+            document.getElementById('pinmsg').style.display = "none";
+        }
+
+        var nameexpr = /^[a-zA-Z\-]+$/;
+    var nm = document.getElementById("city").value;
+    if(nm!="" && nameexpr.test(nm)==false){
+        document.getElementById('citymsg').style.display = "block";
+        document.getElementById('citymsg').innerHTML = "Invalid City";
+        return false;
+    }
+    else{
+        document.getElementById('citymsg').style.display = "none";
+    }
+
+   
+    var pass = document.getElementById("password").value;
+    var cpass = document.getElementById("cpass").value;
+    if(cpass!=""&&pass!=cpass){
+        document.getElementById('passmsg').style.display = "block";
+        document.getElementById('passmsg').innerHTML = "Password doesnt match";
+        return false;
+    }
+    else{
+        document.getElementById('passmsg').style.display = "none";
+    }
+      if (
+        Validstr1() === false ||
+        Validstr2() === false ||
+        Validstr() === false ||
+        ValidateEmail() === false ||
+        Password() === false ||
+        cpassword() === false ||
+        Validphone() === false
+      ) {
+        return false;
+      }
+      
+    }
+  </script>
+    
 
 
   <!-- ====================================
@@ -113,118 +265,162 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
 
             </li>
             <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                aria-expanded="false" aria-controls="app">
-                <i class="mdi mdi-pencil-box-multiple"></i>
-                <span class="nav-text">Services</span> <b class="caret"></b>
-              </a>
+                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                    aria-expanded="false" aria-controls="app">
+                    <i class="mdi mdi-pencil-box-multiple"></i>
+                    <span class="nav-text">Users</span> <b class="caret"></b>
+                  </a>
 
-              <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                  <li class="">
-                    <a class="sidenav-item-link" href="aservice.php">
-                      <span class="nav-text">Add Service</span>
-                    </a>
-                  </li>
+                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                    <div class="sub-menu">
+                      <li class="">
+                        <a class="sidenav-item-link" href="req.php">
+                          <span class="nav-text">New Requests</span>
+                        </a>
+                      </li>
 
-                  <li class="">
-                    <a class="sidenav-item-link" href="eservices.php">
-                      <span class="nav-text">Edit Services</span>
-                    </a>
-                  </li>
-                  <li class="">
-                    <a class="sidenav-item-link" href="dservices.php">
-                      <span class="nav-text">Deleted Services</span>
-                    </a>
-                  </li>
-                </div>
-              </ul>
-            </li>
-            <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                aria-expanded="false" aria-controls="app">
-                <i class="mdi mdi-pencil-box-multiple"></i>
-                <span class="nav-text">Users</span> <b class="caret"></b>
-              </a>
+                      <li class="">
+                        <a class="sidenav-item-link" href="ausers.php">
+                          <span class="nav-text">Approved Users</span>
+                        </a>
+                      </li>
 
-              <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                  <li class="">
-                    <a class="sidenav-item-link" href="req.php">
-                      <span class="nav-text">New Requests</span>
-                    </a>
-                  </li>
+                      <li class="">
+                        <a class="sidenav-item-link" href="rusers.php">
+                          <span class="nav-text">Rejected Users</span>
+                        </a>
+                      </li>
 
-                  <li class="">
-                    <a class="sidenav-item-link" href="ausers.php">
-                      <span class="nav-text">Approved Users</span>
-                    </a>
-                  </li>
+                      
+                    </div>
+                  </ul>
+                </li>
+                <li class="has-sub ">
+                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
+                    aria-expanded="false" aria-controls="components">
+                    <i class="mdi mdi-folder-multiple-outline"></i>
+                    <span class="nav-text">Baby Sitters</span> <b class="caret"></b>
+                  </a>
 
-                  <li class="">
-                    <a class="sidenav-item-link" href="rusers.php">
-                      <span class="nav-text">Rejected Users</span>
-                    </a>
-                  </li>
+                  <ul class="collapse " id="components" data-parent="#sidebar-menu">
+                    <div class="sub-menu">
+                      <li class="">
+                        <a class="sidenav-item-link" href="sreg.php">
+                          <span class="nav-text">Enroll</span>
+                        </a>
+                      </li>
 
+                      <li class="">
+                        <a class="sidenav-item-link" href="sitters.php">
+                          <span class="nav-text">Sitters List</span>
+                        </a>
+                      </li>
 
-                </div>
-              </ul>
-            </li>
+                      <li class="">
+                        <a class="sidenav-item-link" href="bsitters.php">
+                          <span class="nav-text">Blocked Sitters</span>
 
-            <!-- <li class="section-title">
-                  UI Elements
-                </li> -->
+                        </a>
+                      </li>
 
-            <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
-                aria-expanded="false" aria-controls="components">
-                <i class="mdi mdi-folder-multiple-outline"></i>
-                <span class="nav-text">Baby Sitters</span> <b class="caret"></b>
-              </a>
+                     
+                    </div>
+                  </ul>
+                </li>
+                  <li class="has-sub active expand">
+                  <a class="sidenav-item-link" href="apayment.php"  
+                    >
+                    <i class="mdi mdi-view-dashboard-outline"></i>
+                    <span class="nav-text">Payment</span> 
+                  </a>
+                </li>
+                  <li class="has-sub ">
+                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                    aria-expanded="false" aria-controls="app">
+                    <i class="mdi mdi-pencil-box-multiple"></i>
+                    <span class="nav-text">  Attendance</span> <b class="caret"></b>
+                  </a>
 
-              <ul class="collapse " id="components" data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                  <li class="">
-                    <a class="sidenav-item-link" href="sreg.php">
-                      <span class="nav-text">Enroll</span>
-                    </a>
-                  </li>
+                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                    <div class="sub-menu">
+                      <li class="">
+                        <a class="sidenav-item-link" href="check-attendance.php">
+                          <span class="nav-text">Check-attendance</span>
+                        </a>
+                      </li>
+                      <li class="">
+                        <a class="sidenav-item-link" href="viewattendance.php">
+                          <span class="nav-text">Attendance List</span>
+                        </a>
+                      </li>
+                      <li class="">
+                        <a class="sidenav-item-link" href="attendancerpt.php">
+                          <span class="nav-text">Attendance Report</span>
+                        </a>
+                      </li>		  
+                    </div>
+                  </ul>
+                  
+                  <li class="has-sub active expand">
+                  <a class="sidenav-item-link" href="users.php">
+                    <i class="mdi mdi-view-dashboard-outline"></i>
+                    <span class="nav-text">Chat</span> 
+                  </a>
+                </li>
+                </li>
+                 <li class="has-sub ">
+                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                    aria-expanded="false" aria-controls="app">
+                    <i class="mdi mdi-pencil-box-multiple"></i>
+                    <span class="nav-text">Services</span> <b class="caret"></b>
+                  </a>
 
-                  <li class="">
-                    <a class="sidenav-item-link" href="sitters.php">
-                      <span class="nav-text">Sitters List</span>
-                    </a>
-                  </li>
+                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                    <div class="sub-menu">
+                      <li class="">
+                        <a class="sidenav-item-link" href="aservice.php">
+                          <span class="nav-text">Add Service</span>
+                        </a>
+                      </li>
 
-                  <li class="">
-                    <a class="sidenav-item-link" href="bsitters.php">
-                      <span class="nav-text">Blocked Sitters</span>
+                      <li class="">
+                        <a class="sidenav-item-link" href="eservices.php">
+                          <span class="nav-text">Edit Services</span>
+                        </a>
+                      </li>  
+                     <li class="">
+                        <a class="sidenav-item-link" href="dservices.php">
+                          <span class="nav-text">Deleted Services</span>
+                        </a>
+                      </li>					  
+                    </div>
+                  </ul>
+                </li> 
+        <li class="has-sub active expand">
+                  <a class="sidenav-item-link" href="nutrition.php"  
+                    >
+                    <i class="mdi mdi-view-dashboard-outline"></i>
+                    <span class="nav-text">Add nutrition</span> 
+                  </a>
+                </li>
+                <li class="has-sub active expand">
+                  <a class="sidenav-item-link" href="viewfeedback.php"  
+                    >
+                    <i class="mdi mdi-view-dashboard-outline"></i>
+                    <span class="nav-text">View Feedbacks</span> 
+                  </a>
 
-                    </a>
-                  </li>
-
-
-                </div>
-              </ul>
-            </li>
-
-            <li class="has-sub active expand">
-              <a class="sidenav-item-link" href="nutrition.php">
-                <i class="mdi mdi-view-dashboard-outline"></i>
-                <span class="nav-text">Add nutrition</span>
-              </a>
-
-
-            </li>
-            <li class="has-sub active expand">
-              <a class="sidenav-item-link" href="profile.php">
-                <i class="mdi mdi-view-dashboard-outline"></i>
-                <span class="nav-text">My profile</span>
-              </a>
-
-
-            </li>
+                  
+                </li>
+			   
+			   <li class="has-sub active expand">
+                  <a class="sidenav-item-link" href="profile.php"  
+                    >
+                    <i class="mdi mdi-view-dashboard-outline"></i>
+                    <span class="nav-text">My profile</span> 
+                  </a> 
+                </li>   
+                </li>
 
             <li class="has-sub active expand">
               <a class="sidenav-item-link" href="logout.php">
@@ -371,9 +567,11 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                   <div class="col-sm-12">
                     <label class="text-dark font-weight-medium" for="">Your Email</label>
                     <div class="input-group mb-2">
-
+                    
                       <input type="email" class="form-control" id="email" name="mailid" placeholder="Your Email"
                         required>
+                        <span id="email" style="color: red"></span>
+
                     </div>
                   </div>
                   <div class="col-sm-12">
@@ -381,6 +579,8 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                     <div class="input-group mb-2">
 
                       <input type="date" class="form-control" id="dob" name="dob" required>
+                      <span id="date" style="color: red"></span>
+
                     </div>
                   </div>
                   <div class="col-sm-12">
@@ -389,6 +589,8 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                     <div class="input-group mb-2">
 
                       <input type="file" class="form-control" id="fileToUpload" name="fileToUpload" required>
+                      <span id="file" style="color: red"></span>
+
                     </div>
                   </div>
                   <div class="col-sm-12">
@@ -396,6 +598,8 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                     <div class="input-group mb-2">
 
                       <input type="file" class="form-control" id="fileToUpload1" name="fileToUpload1" required>
+                      <span id="upload" style="color: red"></span>
+
                     </div>
                   </div>
                   <div class="col-sm-12">
@@ -562,25 +766,16 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
               $date1 = new DateTime($dob);
               $date2 = new DateTime($date);
               $interval = $date1->diff($date2);
-
               $myage = $interval->y;
-
               if ($myage >= 20) {
                 $flag = 0;
               } else {
                 $flag = 2;
               }
-
-
               if ($flag == 2) {
                 echo "<script>alert('Enter valid DOB');</script>";
               }
-
-
-
               if ($flag == 0) {
-
-
                 $data = "SELECT * FROM tbl_sitterreg";
                 $c = 0;
                 $sd = "SELECT * FROM tbl_sitterreg";
@@ -610,7 +805,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                   move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_dir1 . $target_file1); //uploading
                   $file2 = "profile_pic/" . $target_file1; //dbfield info
             
-                  $sql = "INSERT INTO `tbl_sitterreg` VALUES ('$id','$name','$phno','$ano','$mailid','$dob','$file','$gender','$experience','$category','$hname','$sname','$zipcode','$city','$file2','1','$skill1','$skill2','$skill3','$skill4','$skill5','deactive')";
+                  $sql = "INSERT INTO `tbl_sitterreg` VALUES ('$id','$name','$phno','$ano','$mailid','$dob','$file','$gender','$experience','$category','$hname','$sname','$zipcode','$city','$file2','1','$skill1','$skill2','$skill3','$skill4','$skill5')";
                 //   mysql_query($sql, $con);
                   if (mysql_query($sql, $con)) {
 
@@ -625,23 +820,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
               }
             }
             ?>
-
-
           </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div> <!-- End Content -->
       </div> <!-- End Content Wrapper -->
 
@@ -664,41 +843,15 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
   <script src="assets/plugins/jquery/jquery.min.js"></script>
   <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/plugins/simplebar/simplebar.min.js"></script>
-
   <script src='assets/plugins/charts/Chart.min.js'></script>
   <script src='assets/js/chart.js'></script>
-
-
-
-
   <script src='assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js'></script>
   <script src='assets/plugins/jvectormap/jquery-jvectormap-world-mill.js'></script>
   <script src='assets/js/vector-map.js'></script>
-
   <script src='assets/plugins/daterangepicker/moment.min.js'></script>
   <script src='assets/plugins/daterangepicker/daterangepicker.js'></script>
   <script src='assets/js/date-range.js'></script>
-
-
-
-
-
-
-
-
   <script src='assets/plugins/toastr/toastr.min.js'></script>
-
-
-
-
-
-
-
-
-
-
-
-
   <script src="assets/js/sleek.js"></script>
   <link href="assets/options/optionswitch.css" rel="stylesheet">
   <script src="assets/options/optionswitcher.js"></script>

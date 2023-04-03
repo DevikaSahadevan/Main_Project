@@ -168,8 +168,7 @@
 	<tr><td>Student Name :</td><td><?php echo $row['street_name'];?></td></tr>
 	<tr><td>Zipcode :</td><td><?php echo $row['zipcode'];?></td></tr>
 	<tr><td>City :</td><td><?php echo $row['city'];?></td></tr>
-	<tr><td>State :</td><td><?php echo $row['state'];?></td></tr>
-	<tr><td>Country :</td><td><?php echo $row['country'];?></td></tr>
+
 	<td><a href="sitters.php" id="reject">Back</a></td></tr>
 
 

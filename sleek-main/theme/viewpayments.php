@@ -431,6 +431,8 @@ else
 mysql_close ($con);
 
 ?>
+$p=$p+1;
+
                         </tbody>
                       </table>
                     </div>
