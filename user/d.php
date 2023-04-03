@@ -539,7 +539,7 @@ while ($rq = mysql_fetch_array($chk)) {
                           </td>
                         </tr>
                         <tr>
-                          <td>Student Name :</td>
+                          <td>Street Name :</td>
                           <td>
                             <?php echo $row['s_name']; ?>
                           </td>
