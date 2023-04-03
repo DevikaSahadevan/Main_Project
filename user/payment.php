@@ -504,7 +504,10 @@ $u_id=$rq['login_id'];
                                 $amts="SELECT * FROM `tbl_payamount` WHERE `user_id`='$u_id'";
                                 $ammt=mysql_query($amts,$con);
                                 while($rqs = mysql_fetch_array($ammt)){
-                                $pay_id=$rqs['pay_amount'];}?>
+                                $pay_id=$rqs['pay_amount'];}
+                                $checkpay =mysql_query("SELECT * FROM tbl_payment WHERE user = {$_SESSION['username']}");
+                                if(mysql_num_rows($checkpay)>0){
+                                ?>
                                 <span>YOUR AMOUNT TO PAY</span>
 								<li><h3><?php echo $pay_id; ?></h3>
                                 
@@ -515,6 +518,12 @@ $u_id=$rq['login_id'];
                                     <input type="hidden" id="paid" name="paid" value="<?php echo $pay_id;?>">
 									<button id="pay_button_weekly" name="pay" onclick="pay_now();">Pay Now</button>
 								</li>
+                                <?php
+                                }else{
+                                    echo "<span style='font-size:40px;'>PAID</span>";
+                                }
+
+                                ?>
 							</ul>
 					</div>
 
@@ -625,7 +634,7 @@ $u_id=$rq['login_id'];
                 "handler": function (response) {
                     console.log(response);
                     var pid = response.razorpay_payment_id;
-                    alert(pid);
+                    // alert(pid);
                     $.ajax({
                         type: 'POST',
                         url: 'success_payment.php',
@@ -635,7 +644,7 @@ $u_id=$rq['login_id'];
                             user: user,
                         },
                         success: function(result) {
-                            alert(result);
+                            // alert(result);
                             // alert("Payment Successfull")
                             // window.location.href="uploadfile/component-file-upload.php?payment_id="+response.razorpay_payment_id;
                         }

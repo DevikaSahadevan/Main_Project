@@ -3,12 +3,12 @@
 session_start();
 include 'dbconnect.php';
 $result = mysql_query("SELECT * FROM tbl_feedback");
-$count=$result->num_rows;
-printf($count);
+$count=mysql_num_rows($result);
+// printf($count);
 if ($count > 0) 
 {
     $texts = array();
-    while ($row = $result->fetch_assoc()) {
+    while ($row = mysql_fetch_assoc($result)) {
         $texts[] = $row["msg"];
     }
     $url = 'http://127.0.0.1:5000/sentiment';
