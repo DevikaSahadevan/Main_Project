@@ -376,11 +376,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
             $query = "INSERT INTO tbl_payamount(`user_id`,`pay_amount`,`pay_date`) VALUES('$user_id','$pay_amount','$pdate')";
             $query_run = mysql_query($query);
           }
-
           ?>
-
-
-
           <div class="row">
             <div class="col-lg-6">
 
