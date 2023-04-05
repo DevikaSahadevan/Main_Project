@@ -6,10 +6,10 @@ include '../dbconnect.php';
 
 $us=$_SESSION['username'];
 
-$chk1="SELECT * FROM `tbl_login` WHERE `username`='$us'";
+$chk1="SELECT * FROM `tbl_registration` WHERE `g_mailid`='$us'";
 $chk=mysql_query($chk1,$con);
 while($rq = mysql_fetch_array($chk)){
-$u_id=$rq['login_id'];
+$u_id=$rq['baby_id'];
 }
 
 ?>
@@ -505,10 +505,17 @@ $u_id=$rq['login_id'];
                                 $ammt=mysql_query($amts,$con);
                                 while($rqs = mysql_fetch_array($ammt)){
                                 $pay_id=$rqs['pay_amount'];}
-                                $checkpay =mysql_query("SELECT * FROM tbl_payment WHERE user = {$_SESSION['username']}");
+                                $checkpay =mysql_query("SELECT * FROM tbl_payment WHERE user = '{$_SESSION['username']}'");
                                 if(mysql_num_rows($checkpay)>0){
+                                    echo "<span style='font-size:40px;color:black;'>PAID</span>";
+                                    $fdata = mysql_fetch_assoc($checkpay);
+                                    echo '<div style="color:red;"><br><br>ON '.$fdata['pay_date'];
                                 ?>
-                                <span>YOUR AMOUNT TO PAY</span>
+                                
+                                <?php
+                                }else{
+                                    ?>
+<span>YOUR AMOUNT TO PAY</span>
 								<li><h3><?php echo $pay_id; ?></h3>
                                 
 									<!-- <span>per week</span> -->
@@ -518,11 +525,8 @@ $u_id=$rq['login_id'];
                                     <input type="hidden" id="paid" name="paid" value="<?php echo $pay_id;?>">
 									<button id="pay_button_weekly" name="pay" onclick="pay_now();">Pay Now</button>
 								</li>
-                                <?php
-                                }else{
-                                    echo "<span style='font-size:40px;'>PAID</span>";
+                                    <?php
                                 }
-
                                 ?>
 							</ul>
 					</div>
@@ -644,6 +648,7 @@ $u_id=$rq['login_id'];
                             user: user,
                         },
                         success: function(result) {
+                            window.location.href="payment.php";
                             // alert(result);
                             // alert("Payment Successfull")
                             // window.location.href="uploadfile/component-file-upload.php?payment_id="+response.razorpay_payment_id;
