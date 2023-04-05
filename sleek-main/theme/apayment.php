@@ -15,8 +15,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
+  <meta name="description" content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
 
   <!-- theme meta -->
   <meta name="theme-name" content="sleek" />
@@ -24,8 +23,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
   <title>Admin Panel</title>
 
   <!-- GOOGLE FONTS -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
 
   <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 
@@ -65,7 +63,9 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
 
 <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
   <script>
-    NProgress.configure({ showSpinner: false });
+    NProgress.configure({
+      showSpinner: false
+    });
     NProgress.start();
   </script>
 
@@ -90,8 +90,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
         <!-- Aplication Brand -->
         <div class="app-brand">
           <a href="index.php" title="Sleek Dashboard">
-            <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30"
-              height="33" viewBox="0 0 30 33">
+            <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30" height="33" viewBox="0 0 30 33">
               <g fill="none" fill-rule="evenodd">
                 <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z" />
                 <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
@@ -112,8 +111,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                 <span class="nav-text">Dashboard</span>
               </a>
             <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                aria-expanded="false" aria-controls="app">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app" aria-expanded="false" aria-controls="app">
                 <i class="mdi mdi-pencil-box-multiple"></i>
                 <span class="nav-text">Users</span> <b class="caret"></b>
               </a>
@@ -143,8 +141,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
               </ul>
             </li>
             <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
-                aria-expanded="false" aria-controls="components">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components" aria-expanded="false" aria-controls="components">
                 <i class="mdi mdi-folder-multiple-outline"></i>
                 <span class="nav-text">Baby Sitters</span> <b class="caret"></b>
               </a>
@@ -181,8 +178,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
               </a>
             </li>
             <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                aria-expanded="false" aria-controls="app">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app" aria-expanded="false" aria-controls="app">
                 <i class="mdi mdi-pencil-box-multiple"></i>
                 <span class="nav-text"> Attendance</span> <b class="caret"></b>
               </a>
@@ -215,8 +211,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
             </li>
             </li>
             <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                aria-expanded="false" aria-controls="app">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app" aria-expanded="false" aria-controls="app">
                 <i class="mdi mdi-pencil-box-multiple"></i>
                 <span class="nav-text">Services</span> <b class="caret"></b>
               </a>
@@ -394,9 +389,9 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                       $query_run = mysql_query($query);
                       while ($row = mysql_fetch_assoc($query_run)) {
 
-                        ?>
+                      ?>
                         <option value="<?php echo $row['baby_id'] ?>"><?php echo $row['g_name'] ?></option>
-                        <?php
+                      <?php
                       }
                       ?>
                     </select>
@@ -409,8 +404,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                     <label class="text-dark font-weight-medium" for="">Payment amount</label>
                     <div class="input-group mb-2">
 
-                      <input type="text" class="form-control" id="service" name="payment" required
-                        placeholder="Enter pay amount">
+                      <input type="text" class="form-control" id="service" name="payment" required placeholder="Enter pay amount">
                     </div>
                   </div>
 
@@ -428,7 +422,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
             //  if(isset($_POST['submit']))
             //  {
             // 	 $id=autoid("tbl_payment","payment_id");
-            
+
 
 
 
@@ -444,7 +438,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
             // 		echo "<script>alert('not Added!');location.href='apayment.php';</script>";
             // 	}
             //  }	
-            
+
 
 
             ?>
