@@ -184,6 +184,13 @@
                     <span class="nav-text">Payment</span> 
                   </a>
                 </li>
+                <li class="has-sub active expand">
+                  <a class="sidenav-item-link" href="pu.php"  
+                    >
+                    <i class="mdi mdi-view-dashboard-outline"></i>
+                    <span class="nav-text">Paid Users</span> 
+                  </a>
+                </li>
                   <li class="has-sub ">
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
                     aria-expanded="false" aria-controls="app">
