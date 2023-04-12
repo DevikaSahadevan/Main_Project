@@ -508,14 +508,18 @@ $u_id=$rq['baby_id'];
                                 $checkpay =mysql_query("SELECT * FROM tbl_payment WHERE user = '{$_SESSION['username']}'");
                                 if(mysql_num_rows($checkpay)>0){
                                     echo "<span style='font-size:40px;color:black;'>PAID</span>";
+                                    
                                     $fdata = mysql_fetch_assoc($checkpay);
-                                    echo '<div style="color:red;"><br><br>ON '.$fdata['pay_date'];
+                                    echo '<div style="color:red;"><br><br>ON '.$fdata['pay_date'];?><br><br>
+                                 <?php   echo "<button>receipt</button>";
                                 ?>
+
+
                                 
                                 <?php
                                 }else{
                                     ?>
-<span>YOUR AMOUNT TO PAY</span>
+                                <span>YOUR AMOUNT TO PAY</span>
 								<li><h3><?php echo $pay_id; ?></h3>
                                 
 									<!-- <span>per week</span> -->
@@ -527,7 +531,7 @@ $u_id=$rq['baby_id'];
 								</li>
                                     <?php
                                 }
-                                ?>
+                                ?>     
 							</ul>
 					</div>
 

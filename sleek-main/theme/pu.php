@@ -465,19 +465,10 @@ mysql_close($con);
     <script src='assets/plugins/toastr/toastr.min.js'></script>
 
 
-
-
-
-
-
-
-
-
-
-
     <script src="assets/js/sleek.js"></script>
     <link href="assets/options/optionswitch.css" rel="stylesheet">
     <script src="assets/options/optionswitcher.js"></script>
 </body>
 
 </html>
+<link rel="stylesheet" href="n.php">

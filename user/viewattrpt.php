@@ -91,7 +91,7 @@
         <!-- Contact Start -->
         <div class="container-xxl py-5">
             <div class="container">
-                
+            <div id="divToPrint">
                
                 <div class="bg-light rounded">
                     <div class="row g-0">
@@ -101,7 +101,7 @@
                                     <div class="row g-3">
 									    <div class="col-sm-12">
                                             <div class="form-floating">
-                                               <h4>Check Attendance List</h4>
+                                               <h4>Attendance Report</h4>
                                             </div>
                                         </div>
                                        									
@@ -124,20 +124,16 @@
 			  //$uname=$_SESSION['username']; 
              $i = 1;
 ?>
+<div class="forma">
 <form action="" method="post">
 		<p>Select month: </p>
 		<input type="month" name="mnth" class="form-control mb-3" required> &nbsp;
         <button type="submit" name="mnth_submit" class="btn btn-danger">Search by month</button>
+        <input type="button" class="btn btn-success" value="print" onclick="PrintDiv();" />
         <br><br>
 
     </form>
-<form action="" method="post">
-		<p>Select date: </p>
-		<input type="date" name="date" class="form-control mb-3" required> &nbsp;
-        <button type="submit" name="date_submit" class="btn btn-success">Search by date</button>
-        <br><br>
 
-    </form>
     <?php
     if(isset($_POST['date_submit'])){
         $date = $_POST['date'];
@@ -162,6 +158,7 @@
         }else{
             echo "<p>No records</p>"; 
         }
+        echo '</div>';
         if(isset($_POST['mnth_submit'])){
             $mnth = $_POST['mnth'];
             $dateString = $mnth;
@@ -200,8 +197,8 @@ $monthNumber = date("m", strtotime($dateString));
                             </div>
                         </div>
                         
-                    </div>
                 </div>
+        </div>
             </div>
         </div>
         <!-- Contact End -->
@@ -220,7 +217,15 @@ $monthNumber = date("m", strtotime($dateString));
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
+    <script type="text/javascript">     
+    function PrintDiv() {    
+       var divToPrint = document.getElementById('divToPrint');
+       var popupWin = window.open('', '_blank', 'width=1000,height=2500');
+       popupWin.document.open();
+       popupWin.document.write('<html><style>.forma{display:none;}table{font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td,th{border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+        popupWin.document.close();
+            }
+ </script>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

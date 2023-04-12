@@ -365,6 +365,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                       <tr>
                         <th>Feedback_Id</th>
                         <th>User</th>
+                        <th>Feedback</th>
                         <th>Feedback</t<th>Date</th>
                       </tr>
                       <?php
@@ -379,9 +380,9 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                         <tr>
                           <td><?php echo $row['f_id']; ?></td>
 
-                          <td class="text-dark d-none d-md-block"><?php echo $row['f_user']; ?></td>
-                          <td><?php echo $row['feedback']; ?></td>
-                          <td><?php echo $row['fdate']; ?></td>
+                          <td class="text-dark d-none d-md-block"><?php echo $row['uname']; ?></td>
+                          <td><?php echo $row['msg']; ?></td>
+                          <td><?php echo $row['date']; ?></td>
 
                         </tr>
                       <?php

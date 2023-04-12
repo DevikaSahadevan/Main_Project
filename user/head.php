@@ -35,7 +35,13 @@
                     <a href="index.php" class="nav-item nav-link active">Home</a>
                     <a href="sitters.php" class="nav-item nav-link">BabySitters</a>
                     <a href="feedback.php" class="nav-item nav-link">Feedback</a>
-                    <a href="view-attendance.php" class="nav-item nav-link">View Attendance</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Attendence</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                            <a href="view-attendance.php" class="dropdown-item">View Attendance</a>
+                            <a href="viewattrpt.php" class="dropdown-item">Attendance Report</a>
+                        </div>
+                    </div>
                     <a href="payment.php" class="nav-item nav-link">Payments</a>
                     <a href="nutrition.php" class="nav-item nav-link">View Nutritions</a>
                     <a href="d.php" class="nav-item nav-link">MyProfile</a>
