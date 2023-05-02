@@ -114,7 +114,8 @@
                     <i class="mdi mdi-view-dashboard-outline"></i>
                     <span class="nav-text">Dashboard</span> 
                   </a>
-                  <li class="has-sub ">
+                 
+                <li class="has-sub ">
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
                     aria-expanded="false" aria-controls="app">
                     <i class="mdi mdi-pencil-box-multiple"></i>
@@ -145,6 +146,12 @@
                     </div>
                   </ul>
                 </li>
+                <li class="has-sub active expand">
+                  <a class="sidenav-item-link" href="activites.php"  
+                    >
+                    <i class="mdi mdi-view-dashboard-outline"></i>
+                    <span class="nav-text">Daily Activites</span> 
+                  </a>
                 <li class="has-sub ">
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
                     aria-expanded="false" aria-controls="components">
@@ -184,14 +191,7 @@
                     <span class="nav-text">Payment</span> 
                   </a>
                 </li>
-                <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="pu.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Paid Users</span> 
-                  </a>
-                </li>
-                  <li class="has-sub ">
+                <li class="has-sub ">
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
                     aria-expanded="false" aria-controls="app">
                     <i class="mdi mdi-pencil-box-multiple"></i>
@@ -218,6 +218,14 @@
                     </div>
                   </ul>
                   
+                <li class="has-sub active expand">
+                  <a class="sidenav-item-link" href="pu.php"  
+                    >
+                    <i class="mdi mdi-view-dashboard-outline"></i>
+                    <span class="nav-text">Paid Users</span> 
+                  </a>
+                </li>
+                 
                   <li class="has-sub active expand">
                   <a class="sidenav-item-link" href="users.php">
                     <i class="mdi mdi-view-dashboard-outline"></i>
@@ -225,34 +233,7 @@
                   </a>
                 </li>
                 </li>
-                 <li class="has-sub ">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                    aria-expanded="false" aria-controls="app">
-                    <i class="mdi mdi-pencil-box-multiple"></i>
-                    <span class="nav-text">Services</span> <b class="caret"></b>
-                  </a>
-
-                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="">
-                        <a class="sidenav-item-link" href="aservice.php">
-                          <span class="nav-text">Add Service</span>
-                        </a>
-                      </li>
-
-                      <li class="">
-                        <a class="sidenav-item-link" href="eservices.php">
-                          <span class="nav-text">Edit Services</span>
-                        </a>
-                      </li>  
-                     <li class="">
-                        <a class="sidenav-item-link" href="dservices.php">
-                          <span class="nav-text">Deleted Services</span>
-                        </a>
-                      </li>					  
-                    </div>
-                  </ul>
-                </li> 
+                
         <li class="has-sub active expand">
                   <a class="sidenav-item-link" href="nutrition.php"  
                     >
@@ -270,25 +251,13 @@
                   
                 </li>
 			   
-			   <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="profile.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">My profile</span> 
-                  </a> 
-                </li>   
-                </li>
-               
-				
-				<li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="logout.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Logout</span> 
-                  </a>
-
+			  
+        
+        
                   
                 </li>
+                
+				
 
 
                 
