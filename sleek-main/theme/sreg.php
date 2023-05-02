@@ -368,34 +368,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                   </a>
                 </li>
                 </li>
-                 <li class="has-sub ">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                    aria-expanded="false" aria-controls="app">
-                    <i class="mdi mdi-pencil-box-multiple"></i>
-                    <span class="nav-text">Services</span> <b class="caret"></b>
-                  </a>
-
-                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="">
-                        <a class="sidenav-item-link" href="aservice.php">
-                          <span class="nav-text">Add Service</span>
-                        </a>
-                      </li>
-
-                      <li class="">
-                        <a class="sidenav-item-link" href="eservices.php">
-                          <span class="nav-text">Edit Services</span>
-                        </a>
-                      </li>  
-                     <li class="">
-                        <a class="sidenav-item-link" href="dservices.php">
-                          <span class="nav-text">Deleted Services</span>
-                        </a>
-                      </li>					  
-                    </div>
-                  </ul>
-                </li> 
+                 
         <li class="has-sub active expand">
                   <a class="sidenav-item-link" href="nutrition.php"  
                     >
