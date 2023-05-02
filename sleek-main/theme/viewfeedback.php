@@ -355,18 +355,20 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
               <!-- New Customers -->
               <div class="card card-table-border-none">
                 <div class="card-header justify-content-between ">
-                  <h2>View Previously Added</h2>
+                  <h2>Parent Feedback</h2>
 
                 </div>
 
-                <div class="card-body pt-0" data-simplebar style="height: 468px;">
+                <div class="card-body pt-0" data-simplebar style="height: 4680px;">
                   <table class="table ">
                     <tbody>
                       <tr>
-                        <th>Feedback_Id</th>
-                        <th>User</th>
-                        <th>Feedback</th>
-                        <th>Feedback</t<th>Date</th>
+                        <th>Feedback_Id</th><br>
+                        <th>User</th><br>
+                        <th>Feedback</th><br>
+                        <th>Feedback Date</th>
+                        <th>View</th>
+
                       </tr>
                       <?php
 
@@ -383,6 +385,9 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                           <td class="text-dark d-none d-md-block"><?php echo $row['uname']; ?></td>
                           <td><?php echo $row['msg']; ?></td>
                           <td><?php echo $row['date']; ?></td>
+                          <td><a href="view.php?id=<?php echo $row['f_id']; ?>"><button>Review</button></a></td>
+
+
 
                         </tr>
                       <?php

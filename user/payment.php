@@ -511,8 +511,10 @@ $u_id=$rq['baby_id'];
                                     
                                     $fdata = mysql_fetch_assoc($checkpay);
                                     echo '<div style="color:red;"><br><br>ON '.$fdata['pay_date'];?><br><br>
-                                 <?php   echo "<button>receipt</button>";
-                                ?>
+                                 <?php  $a= $fdata['pay_id'];  ?>
+                                  <a href="Inv.php?id=<?php echo $a; ?>"><button>Receipt</button></a>
+
+                               
 
 
                                 

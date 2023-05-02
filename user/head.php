@@ -1,7 +1,5 @@
 <?php
   session_start();
-  // error_reporting(0);
-  //authorization
   $username=$_SESSION['username'];
   // $namequery = "SELECT uname FROM tbl_login WHERE username='$username'";
   // $namequery_run = mysql_query($namequery);
@@ -32,7 +30,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="index.php" class="nav-item nav-link active">Home</a>
                     <a href="sitters.php" class="nav-item nav-link">BabySitters</a>
                     <a href="feedback.php" class="nav-item nav-link">Feedback</a>
                     <div class="nav-item dropdown">
@@ -43,7 +40,8 @@
                         </div>
                     </div>
                     <a href="payment.php" class="nav-item nav-link">Payments</a>
-                    <a href="nutrition.php" class="nav-item nav-link">View Nutritions</a>
+                    <a href="nutrition.php" class="nav-item nav-link">Nutritions</a>
+                    <a href="activites.php" class="nav-item nav-link">Activites</a>
                     <a href="d.php" class="nav-item nav-link">MyProfile</a>
                     
                     <!-- <a href="chat/real_chat/index.php" class="nav-item nav-link">Chat -->
