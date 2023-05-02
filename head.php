@@ -17,7 +17,7 @@
                             <a href="reg.php" class="dropdown-item">Child Enroll</a>
                         </div>
                     </div>
-                   <a href="services.php" class="nav-item nav-link">Services</a>
+                   <a href="contact.php" class="nav-item nav-link">Contact Us</a>
                 </div>
                 </div>
         </nav>
