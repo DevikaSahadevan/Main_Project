@@ -1,6 +1,8 @@
 <?php
+error_reporting(0);
 session_start();
 //authorization
+include 'dbconnect.php';
 if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
   echo "<script>alert('You are not authorized to view this page!');</script>";
   echo "<script>location.href='../../index.php';</script>";
@@ -63,7 +65,9 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
 
 <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
   <script>
-    NProgress.configure({ showSpinner: false });
+    NProgress.configure({
+      showSpinner: false
+    });
     NProgress.start();
   </script>
 
@@ -102,6 +106,14 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
 
         <!-- begin sidebar scrollbar -->
         <div class="" data-simplebar style="height: 100%;">
+          <!-- sidebar menu -->
+          <ul class="nav sidebar-inner" id="sidebar-menu">
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="index.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Dashboard</span>
+              </a>
+              <div class="" data-simplebar style="height: 100%;">
           <!-- sidebar menu -->
           <ul class="nav sidebar-inner" id="sidebar-menu">
             <li class="has-sub active expand">
@@ -265,8 +277,6 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
 
 
 
-
-
             <!-- <li class="section-title">
                   Pages
                 </li> -->
@@ -333,9 +343,6 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
         </nav>
       </header>
 
-
-
-
       <!-- ====================================
           ——— CONTENT WRAPPER
           ===================================== -->
@@ -349,101 +356,229 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
 
           <!-- Top Statistics -->
 
+          <?php
+          if (isset($_POST['add_food'])) {
 
-
-
-
+            $day = $_POST['day'];
+            $breakfood = $_POST['breakfood'];
+            $lunchfood = $_POST['lunchfood'];
+            $evngfood = $_POST['evngfood'];
+            $checkquery = "SELECT day FROM tbl_fooditems WHERE day = '$day'";
+            $checkquery_run = mysql_query($checkquery);
+            if (mysql_num_rows($checkquery_run) > 0) {
+            } else {
+              $query = "INSERT INTO tbl_fooditems(`day`,`f_breakfast`,`f_lunch`,`f_evngsnack`) VALUES('$day','$breakfood','$lunchfood','$evngfood')";
+              $query_run = mysql_query($query);
+            }
+          }
+          ?>
           <div class="row">
             <div class="col-lg-6">
 
-<?php
+              <form action="" method="POST">
+                <div class="card card-default">
+                  <div class="card-header card-header-border-bottom">
+                    <h2>Assign FoodItems</h2>
+                  </div>
+                  <div class="col-sm-12">
+                    <label class="text-dark font-weight-medium" for="">Select date</label>
+                    <select class="form-control" id="breakfast" name="day" required>
+                      <option value="" selected disabled>Select Day</option>
+                      <option value="Monday">Monday</option>
+                      <option value="Tuesday">Tuesday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
+                      <option value="Saturday">Saturday</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12">
+                    <label class="text-dark font-weight-medium" for="">Breakfast</label>
+                    <div class="input-group mb-2">
 
-include 'dbconnect.php';
+                      <select class="form-control" id="breakfast" name="breakfood" required>
+                        <option value="" selected disabled>Select Food Items</option>
+                        <option value="Waffles and Fresh Fruits">Waffles and Fresh Fruits</option>
+                        <option value="Scrambled eggs and turkey sausage">Scrambled eggs and turkey sausage</option>
+                        <option value="French toast and ham">French toast and ham</option>
+                        <option value="Cereal with fresh fruit">Cereal with fresh fruit</option>
+                        <option value="Oatmeal and fresh fruit">Breadroast and egg</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <label class="text-dark font-weight-medium" for="">Lunch</label>
+                    <div class="input-group mb-2">
 
-$baby_res = mysql_query("SELECT a.*, b.* from tbl_registration a INNER JOIN tbl_attendence b ON a.baby_id=b.baby");
+                      <select class="form-control" id="activites" name="lunchfood" required>
+                        <option value="" selected disabled>Select Food Items</option>
+                        <option value="Chicken and waffles">Chicken and waffles</option>
+                        <option value="chappathi and egg curry">chappathi and egg curry</option>
+                        <option value="Meals">Meals</option>
+                        <option value="chicken rice">Chicken Rice</option>
+                        <option value="Poridge">Poridge</option>
+                      </select>
+                    </div>
+                  </div>
 
-?>
+                  <div class="col-sm-12">
+                    <label class="text-dark font-weight-medium" for="">Evening Snaks</label>
+                    <div class="input-group mb-2">
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Attendance</title>
-
-	<style>
-		table {
-			font-family: arial, sans-serif;
-			border-collapse: collapse;
-			width: 100%;
-		}
-
-		td,
-		th {
-			border: 1px solid #dddddd;
-			text-align: left;
-			padding: 8px;
-		}
-
-		tr:nth-child(even) {
-			background-color: #dddddd;
-		}
-	</style>
-
-</head>
-
-<body>
-<?php
-if(isset($_POST['date_submit'])){
-    $date = $_POST['date'];
-    $baby_res = mysql_query("SELECT a.*, b.* from tbl_registration a INNER JOIN tbl_attendence b ON a.baby_id=b.baby and b.att_date='$date'");
-}
-
-?>
-	<form action="" method="post">
-		<p>Select date: </p>
-		<input type="date" name="date" required> &nbsp;
-        <button type="submit" name="date_submit">Search</button>
-        <br><br>
-
-    </form>
-		<table>
-			<tr>
-
-				<th>Baby Name</th>
-				<th>Baby Gender</th>
-				<th>Date of Birth</th>
-				<th>Attendance date</th>
-			</tr>
-			<?php
-
-
-			while ($row = mysql_fetch_array($baby_res)) {
-				?>
-				<tr>
-					<td>
-						<?php echo $row['baby_name']; ?>
-					</td>
-					<td>
-						<?php echo $row['b_gender']; ?>
-					</td>
-					<td>
-						<?php echo $row['b_dob']; ?>
-					</td>
-					<td>
-						<?php echo $row['att_date']; ?>
-					</td>
+                      <select class="form-control" id="activites" name="evngfood" required>
+                        <option value="" selected disabled>Select Food Items</option>
+                        <option value="Milk and Cookies">Milk and Cookies</option>
+                        <option value="Milk and Croissant">Milk and Croissant</option>
+                        <option value="Horlicks and Jamroll">Horlicks and Jamroll</option>
+                        <option value="Boost and Mixture">Boost and Mixture</option>
+                        <option value="Milk and Bread with butter">Milk and Bread with butter</option>
+                      </select>
+                    </div>
+                  </div>
 
 
 
 
-		</tr>
-		<?php
-			}
-			?>
-	</table>
+
+                  <button class="my-1 btn btn-sm btn-success mt-1" name="add_food" type="submit">Add Food</button>
+
+                </div>
+            </div>
+            </form>
+
+          </div>
+          <div class="row">
+            <div class="col-xl-10">
+
+              <!-- New Customers -->
+              <div class="card card-table-border-none">
+                <div class="card-header justify-content-between ">
+                  <h2>Food items</h2>
+
+                </div>
+
+                <div class="card-body pt-0" data-simplebar="" style="height:100%;">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <th>Day</th>
+                        <th>Breakfast</th>
+                        <th>Lunch</th>
+                        <th>Evening Snaks</th>
+                        <th>Action</th>
+                      </tr>
+                      <tr>
+                        <?php
+                        $query_run = mysql_query("SELECT * FROM tbl_fooditems");
+                        while ($row3 = mysql_fetch_assoc($query_run)) {
+
+                          ?>
+                          <td>
+                            <?php echo $row3['day']; ?>
+                          </td>
+
+                          <td>
+                            <?php echo $row3['f_breakfast']; ?>
+                          </td>
+
+                          <td>
+                            <?php echo $row3['f_lunch']; ?>
+                          </td>
+
+                          <td>
+                            <?php echo $row3['f_evngsnack']; ?>
+                          </td>
+                          <td>
+                            <form action="editfood.php" method="post">
+                            <button type="submit" name="edit_food" id="edit_food" value="<?php echo $row3['f_id']; ?>" class="btn btn-warning">Edit</button>
+                            </form>
+                            </td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div> <!-- End Content -->
+      </div> <!-- End Content Wrapper -->
+
+
+      <!-- Footer -->
+
+
+    </div> <!-- End Page Wrapper -->
+  </div> <!-- End Wrapper -->
+
+
+  <!-- <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+      const el = document.createElement('pwa-update');
+      document.body.appendChild(el);
+    </script> -->
+
+  <!-- Javascript -->
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/plugins/simplebar/simplebar.min.js"></script>
+
+  <script src='assets/plugins/charts/Chart.min.js'></script>
+  <script src='assets/js/chart.js'></script>
+
+
+
+
+  <script src='assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js'></script>
+  <script src='assets/plugins/jvectormap/jquery-jvectormap-world-mill.js'></script>
+  <script src='assets/js/vector-map.js'></script>
+
+  <script src='assets/plugins/daterangepicker/moment.min.js'></script>
+  <script src='assets/plugins/daterangepicker/daterangepicker.js'></script>
+  <script src='assets/js/date-range.js'></script>
+
+
+
+
+
+
+
+
+  <script src='assets/plugins/toastr/toastr.min.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="assets/js/sleek.js"></script>
+  <link href="assets/options/optionswitch.css" rel="stylesheet">
+  <script src="assets/options/optionswitcher.js"></script>
 </body>
 
-</html> 
+</html>

@@ -12,6 +12,26 @@ while ($rq = mysql_fetch_array($chk)) {
   $u_id = $rq['login_id'];
 }
 
+if(isset($_POST['edit_submit'])){
+    $uid = $_POST['edit_submit'];
+    $city = $_POST['city'];
+    $zipcode = $_POST['zipcode'];
+    $sname = $_POST['sname'];
+    $hname = $_POST['hname'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $babyname = $_POST['babyname'];
+    // $mailid = $_POST['mailid'];
+    $aphno = $_POST['aphno'];
+    $gphno = $_POST['gphno'];
+    $fullname = $_POST['fullname'];
+    $update_query = mysql_query("UPDATE tbl_registration SET g_name = '$fullname', g_phno = '$gphno', g_aphno = '$aphno', baby_name = '$babyname', b_dob = '$dob', b_gender = '$gender', h_name = '$hname', s_name = '$sname', zipcode = '$zipcode', city = '$city'
+                                WHERE baby_id = '$uid'");
+    if($update_query){
+      echo '<script>alert("Profile updated");</script>';
+      echo '<script>window.location.href="d.php"</script>';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -471,14 +491,16 @@ while ($rq = mysql_fetch_array($chk)) {
                     <section class="container">
                       <div class="row white mb-3" style="font-size:20px;">
                         <?php
-
-
-                        $uname = $_SESSION['username'];
+if(isset($_POST['edit_profile'])){
+    $uname = $_POST['edit_profile'];
                         $result = mysql_query("SELECT * FROM tbl_registration,tbl_login where tbl_registration.g_mailid=tbl_login.username 
-      and tbl_registration.g_mailid='$uname'");
+      and tbl_registration.baby_id='$uname'");
 
                         while ($row = mysql_fetch_array($result)) {
                           ?>
+                          
+                        </table>
+                        <form action="" method="post">
                           <table id="customers">
                             <tr>
                               <td>
@@ -490,76 +512,92 @@ while ($rq = mysql_fetch_array($chk)) {
                         <tr>
                           <td>Name :</td>
                           <td>
-                            <?php echo $row['g_name']; ?>
+                            <input type="text" name="fullname" value="<?php echo $row['g_name']; ?>" required>
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>Guardian Phno :</td>
                           <td>
-                            <?php echo $row['g_phno']; ?>
+                            <input type="text" name="gphno" value="<?php echo $row['g_phno']; ?>" required>
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>Alternate Phno :</td>
                           <td>
-                            <?php echo $row['g_aphno']; ?>
+                            <input type="text" name="aphno" value="<?php echo $row['g_aphno']; ?>" required>
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>Mailid :</td>
                           <td>
-                            <?php echo $row['g_mailid']; ?>
+                            <input type="text" readonly name="mailid" value="<?php echo $row['g_mailid']; ?>">
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>Baby Name :</td>
                           <td>
-                            <?php echo $row['baby_name']; ?>
+                            <input type="text" name="babyname" value="<?php echo $row['baby_name']; ?>" required>
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>DOB :</td>
                           <td>
-                            <?php echo $row['b_dob']; ?>
+                            <input type="date" name="dob" value="<?php echo $row['b_dob']; ?>" required>
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>Baby Gender :</td>
                           <td>
-                            <?php echo $row['b_gender']; ?>
+                            <select name="gender" id="gender" required>
+                                <option value="<?php echo $row['b_gender']; ?>" hidden><?php echo $row['b_gender']; ?></option>
+                                <!-- <option value="" selected disabled>Select gender</option> -->
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                            <!-- <input type="text" value="<?php echo $row['b_gender']; ?>"> -->
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>House Name :</td>
                           <td>
-                            <?php echo $row['h_name']; ?>
+                            <input type="text" name="hname" value="<?php echo $row['h_name']; ?>" required>
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>Street Name :</td>
                           <td>
-                            <?php echo $row['s_name']; ?>
+                            <input type="text" name="sname" value="<?php echo $row['s_name']; ?>" required>
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>Zipcode :</td>
                           <td>
-                            <?php echo $row['zipcode']; ?>
+                            <input type="text" name="zipcode" value="<?php echo $row['zipcode']; ?>" required>
+                            
                           </td>
                         </tr>
                         <tr>
                           <td>City :</td>
                           <td>
-                            <?php echo $row['city']; ?>
+                            <input type="text" name="city" value="<?php echo $row['city']; ?>" required>
+                            
                           </td>
                         </tr>
-                        </table>
-                        <form action="editprofile.php" method="post">
-                          <button type="submit" name="edit_profile" value="<?php echo $row['baby_id'] ?>"
-                            class="btn btn-warning btn-lg mt-3">Edit</button>
+                          <button type="submit" name="edit_submit" value="<?php echo $row['baby_id'] ?>"
+                            class="btn btn-warning btn-lg mt-3">Update profile</button>
                         </form>
                         <?php
                         }
+                    }
                         ?>
                       <div class="block">
 

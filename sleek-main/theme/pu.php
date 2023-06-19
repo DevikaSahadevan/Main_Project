@@ -14,7 +14,8 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
+  <meta name="description"
+    content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
 
   <!-- theme meta -->
   <meta name="theme-name" content="sleek" />
@@ -22,7 +23,8 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
   <title>Admin Panel</title>
 
   <!-- GOOGLE FONTS -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
+    rel="stylesheet" />
 
   <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 
@@ -88,7 +90,8 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
         <!-- Aplication Brand -->
         <div class="app-brand">
           <a href="index.php" title="Sleek Dashboard">
-            <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30" height="33" viewBox="0 0 30 33">
+            <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30"
+              height="33" viewBox="0 0 30 33">
               <g fill="none" fill-rule="evenodd">
                 <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z" />
                 <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
@@ -108,151 +111,150 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                 <i class="mdi mdi-view-dashboard-outline"></i>
                 <span class="nav-text">Dashboard</span>
               </a>
-
-
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
+                <i class="mdi mdi-pencil-box-multiple"></i>
+                <span class="nav-text">Users</span> <b class="caret"></b>
+              </a>
+              <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="req.php">
+                      <span class="nav-text">New Requests</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="ausers.php">
+                      <span class="nav-text">Approved Users</span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="activites.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Daily Activites</span>
+              </a>
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
+                aria-expanded="false" aria-controls="components">
+                <i class="mdi mdi-folder-multiple-outline"></i>
+                <span class="nav-text">Baby Sitters</span> <b class="caret"></b>
+              </a>
+              <ul class="collapse " id="components" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="sreg.php">
+                      <span class="nav-text">Enroll</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="sitters.php">
+                      <span class="nav-text">Sitters List</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="bsitters.php">
+                      <span class="nav-text">Blocked Sitters</span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="viewfeedback.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">View Feedbacks</span>
+              </a>
             </li>
             <li class="has-sub ">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                    aria-expanded="false" aria-controls="app">
-                    <i class="mdi mdi-pencil-box-multiple"></i>
-                    <span class="nav-text">Users</span> <b class="caret"></b>
-                  </a>
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
+                <i class="mdi mdi-pencil-box-multiple"></i>
+                <span class="nav-text">Payment</span> <b class="caret"></b>
+              </a>
 
-                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="">
-                        <a class="sidenav-item-link" href="req.php">
-                          <span class="nav-text">New Requests</span>
-                        </a>
-                      </li>
+              <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="apayment.php">
+                      <span class="nav-text">Add Payment</span>
+                    </a>
+                  </li>
 
-                      <li class="">
-                        <a class="sidenav-item-link" href="ausers.php">
-                          <span class="nav-text">Approved Users</span>
-                        </a>
-                      </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="pu.php">
+                      <span class="nav-text">Paid Users</span>
+                    </a>
+                  </li>
 
-                      <li class="">
-                        <a class="sidenav-item-link" href="rusers.php">
-                          <span class="nav-text">Rejected Users</span>
-                        </a>
-                      </li>
+                </div>
+              </ul>
+            </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="assignsitter.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Assign Sitters</span>
+              </a>
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
+                <i class="mdi mdi-pencil-box-multiple"></i>
+                <span class="nav-text"> Attendance</span> <b class="caret"></b>
+              </a>
 
-                      
-                    </div>
-                  </ul>
-                </li>
-                <li class="has-sub ">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
-                    aria-expanded="false" aria-controls="components">
-                    <i class="mdi mdi-folder-multiple-outline"></i>
-                    <span class="nav-text">Baby Sitters</span> <b class="caret"></b>
-                  </a>
+              <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="check-attendance.php">
+                      <span class="nav-text">Check-attendance</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="viewattendance.php">
+                      <span class="nav-text">Attendance List</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="attendancerpt.php">
+                      <span class="nav-text">Attendance Report</span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
 
-                  <ul class="collapse " id="components" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="">
-                        <a class="sidenav-item-link" href="sreg.php">
-                          <span class="nav-text">Enroll</span>
-                        </a>
-                      </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="users.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Chat</span>
+              </a>
+            </li>
+            </li>
 
-                      <li class="">
-                        <a class="sidenav-item-link" href="sitters.php">
-                          <span class="nav-text">Sitters List</span>
-                        </a>
-                      </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="addfood.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Add nutrition</span>
+              </a>
+            </li>
 
-                      <li class="">
-                        <a class="sidenav-item-link" href="bsitters.php">
-                          <span class="nav-text">Blocked Sitters</span>
 
-                        </a>
-                      </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="profile.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">My profile</span>
+              </a>
+            </li>
+            </li>
 
-                     
-                    </div>
-                  </ul>
-                </li>
-                  <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="apayment.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Payment</span> 
-                  </a>
-                </li>
-                <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="pu.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Paid Users</span> 
-                  </a>
-                </li>
-                  <li class="has-sub ">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                    aria-expanded="false" aria-controls="app">
-                    <i class="mdi mdi-pencil-box-multiple"></i>
-                    <span class="nav-text">  Attendance</span> <b class="caret"></b>
-                  </a>
-
-                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="">
-                        <a class="sidenav-item-link" href="check-attendance.php">
-                          <span class="nav-text">Check-attendance</span>
-                        </a>
-                      </li>
-                      <li class="">
-                        <a class="sidenav-item-link" href="viewattendance.php">
-                          <span class="nav-text">Attendance List</span>
-                        </a>
-                      </li>
-                      <li class="">
-                        <a class="sidenav-item-link" href="attendancerpt.php">
-                          <span class="nav-text">Attendance Report</span>
-                        </a>
-                      </li>		  
-                    </div>
-                  </ul>
-                  
-                  <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="users.php">
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Chat</span> 
-                  </a>
-                </li>
-                </li>
-                
-        <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="nutrition.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Add nutrition</span> 
-                  </a>
-                </li>
-                <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="viewfeedback.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">View Feedbacks</span> 
-                  </a>
-
-                  
-                </li>
-			   
-			  
-        
-        
-                  
-                </li>
-                <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="activites.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text"> Daily Activites</span> 
-                  </a>
-                </li>
-
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="logout.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Logout</span>
+              </a>
+            </li>
 
 
 
@@ -353,143 +355,156 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
 
 
 
-  </div>
+        </div>
 
 
-            <div class="row">
-              <div class="col-xl-10">
+        <div class="row">
+          <div class="col-xl-10">
+            <div id="divToPrint">
+              <!-- New Customers -->
+              <div class="card card-table-border-none">
+                <div class="card-header justify-content-between ">
+                  <h2>View Paid Users</h2>
 
-                <!-- New Customers -->
-                <div class="card card-table-border-none">
-                  <div class="card-header justify-content-between ">
-                    <h2>View Paid Users</h2>
-
-                  </div>
-
-                  <div class="card-body pt-0" data-simplebar style="height: 468px;">
-                    <table class="table ">
-                      <tbody>
-
-                        <?php
-
-                        include 'dbconnect.php';
-
-
-
-
-                        //include('connect.php');
-                        //Db connection code here
-                        $query = 'select * from tbl_payment';
-
-$result = mysql_query($query);
-
-if (!$result) {
-  $message = 'ERROR:' . mysql_error();
-  return $message;
-} else {
-  $i = 0;
-  echo "<table class='table ' border=0 align=center><tr>";
-  while ($i < mysql_num_fields($result)) {
-    $meta = mysql_fetch_field($result, $i);
-    if($meta->name == "pay_id") {
-      echo '<th>Sl. No.</th>'; // modify the table header for pay_id
-    } else {
-      echo '<th>' . ucfirst($meta->name) . '</th>';
-    }
-    $i = $i + 1;
-  }
-
-  $i = 1;
-  while ($row = mysql_fetch_row($result)) {
-    echo '<tr>';
-    $count = count($row);
-    $y = 0;
-    while ($y < $count) {
-      $c_row = current($row);
-      if ($y == 0) {
-        echo '<td>' . $i . '</td>'; // print the row number in the first column
-      } else {
-        echo '<td>' . $c_row . '</td>';
-      }
-      next($row);
-      $y = $y + 1;
-    }
-
-    echo '</tr>';
-    $i = $i + 1;
-  }
-}
-
-echo '</table></body></html>';
-mysql_free_result($result);
-mysql_close($con);
-
-
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
                 </div>
 
+                <div class="card-body pt-0" data-simplebar style="height: 468px;">
+                  <table class="table ">
+                    <tbody>
+
+                      <?php
+
+                      include 'dbconnect.php';
+
+
+
+
+                      //include('connect.php');
+                      //Db connection code here
+                      $query = 'select * from tbl_payment';
+
+                      $result = mysql_query($query);
+
+                      if (!$result) {
+                        $message = 'ERROR:' . mysql_error();
+                        return $message;
+                      } else {
+                        $i = 0;
+                        echo "<table class='table ' border=0 align=center><tr>";
+                        while ($i < mysql_num_fields($result)) {
+                          $meta = mysql_fetch_field($result, $i);
+                          if ($meta->name == "pay_id") {
+                            echo '<th>Sl. No.</th>'; // modify the table header for pay_id
+                          } else {
+                            echo '<th>' . ucfirst($meta->name) . '</th>';
+                          }
+                          $i = $i + 1;
+                        }
+
+                        $i = 1;
+                        while ($row = mysql_fetch_row($result)) {
+                          echo '<tr>';
+                          $count = count($row);
+                          $y = 0;
+                          while ($y < $count) {
+                            $c_row = current($row);
+                            if ($y == 0) {
+                              echo '<td>' . $i . '</td>'; // print the row number in the first column
+                            } else {
+                              echo '<td>' . $c_row . '</td>';
+                            }
+                            next($row);
+                            $y = $y + 1;
+                          }
+
+                          echo '</tr>';
+                          $i = $i + 1;
+                        }
+                      }
+
+                      echo '</table></body></html>';
+                      mysql_free_result($result);
+                      mysql_close($con);
+
+
+                      ?>
+                    </tbody>
+                  </table>
+
+                </div>
               </div>
-
-
             </div>
+            <div>
+              <input type="button" class="btn btn-success" value="print" onclick="PrintDiv();" />
+            </div>
+          </div>
+
+
+        </div>
 
 
 
 
 
-          </div> <!-- End Content -->
-        </div> <!-- End Content Wrapper -->
+      </div> <!-- End Content -->
+    </div> <!-- End Content Wrapper -->
 
 
-        <!-- Footer -->
+    <!-- Footer -->
 
 
-      </div> <!-- End Page Wrapper -->
-    </div> <!-- End Wrapper -->
+  </div> <!-- End Page Wrapper -->
+  </div> <!-- End Wrapper -->
 
 
-    <!-- <script type="module">
+  <!-- <script type="module">
       import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
 
       const el = document.createElement('pwa-update');
       document.body.appendChild(el);
     </script> -->
 
-    <!-- Javascript -->
-    <script src="assets/plugins/jquery/jquery.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/plugins/simplebar/simplebar.min.js"></script>
+  <!-- Javascript -->
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/plugins/simplebar/simplebar.min.js"></script>
 
-    <script src='assets/plugins/charts/Chart.min.js'></script>
-    <script src='assets/js/chart.js'></script>
-
-
-
-
-    <script src='assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js'></script>
-    <script src='assets/plugins/jvectormap/jquery-jvectormap-world-mill.js'></script>
-    <script src='assets/js/vector-map.js'></script>
-
-    <script src='assets/plugins/daterangepicker/moment.min.js'></script>
-    <script src='assets/plugins/daterangepicker/daterangepicker.js'></script>
-    <script src='assets/js/date-range.js'></script>
+  <script src='assets/plugins/charts/Chart.min.js'></script>
+  <script src='assets/js/chart.js'></script>
 
 
 
 
+  <script src='assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js'></script>
+  <script src='assets/plugins/jvectormap/jquery-jvectormap-world-mill.js'></script>
+  <script src='assets/js/vector-map.js'></script>
+
+  <script src='assets/plugins/daterangepicker/moment.min.js'></script>
+  <script src='assets/plugins/daterangepicker/daterangepicker.js'></script>
+  <script src='assets/js/date-range.js'></script>
+
+  <script type="text/javascript">
+    function PrintDiv() {
+      var divToPrint = document.getElementById('divToPrint');
+      var popupWin = window.open('', '_blank', 'width=1000,height=2500');
+      popupWin.document.open();
+      popupWin.document.write('<html><style>table{font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td,th{border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+      popupWin.document.close();
+    }
+
+  </script>
 
 
 
 
-    <script src='assets/plugins/toastr/toastr.min.js'></script>
 
 
-    <script src="assets/js/sleek.js"></script>
-    <link href="assets/options/optionswitch.css" rel="stylesheet">
-    <script src="assets/options/optionswitcher.js"></script>
+  <script src='assets/plugins/toastr/toastr.min.js'></script>
+
+
+  <script src="assets/js/sleek.js"></script>
+  <link href="assets/options/optionswitch.css" rel="stylesheet">
+  <script src="assets/options/optionswitcher.js"></script>
 </body>
 
 </html>

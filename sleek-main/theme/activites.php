@@ -119,7 +119,6 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                 <i class="mdi mdi-pencil-box-multiple"></i>
                 <span class="nav-text">Users</span> <b class="caret"></b>
               </a>
-
               <ul class="collapse " id="app" data-parent="#sidebar-menu">
                 <div class="sub-menu">
                   <li class="">
@@ -127,30 +126,25 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                       <span class="nav-text">New Requests</span>
                     </a>
                   </li>
-
                   <li class="">
                     <a class="sidenav-item-link" href="ausers.php">
                       <span class="nav-text">Approved Users</span>
                     </a>
                   </li>
-
-                  <li class="">
-                    <a class="sidenav-item-link" href="rusers.php">
-                      <span class="nav-text">Rejected Users</span>
-                    </a>
-                  </li>
-
-
                 </div>
               </ul>
             </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="activites.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Daily Activites</span>
+              </a>
             <li class="has-sub ">
               <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
                 aria-expanded="false" aria-controls="components">
                 <i class="mdi mdi-folder-multiple-outline"></i>
                 <span class="nav-text">Baby Sitters</span> <b class="caret"></b>
               </a>
-
               <ul class="collapse " id="components" data-parent="#sidebar-menu">
                 <div class="sub-menu">
                   <li class="">
@@ -158,30 +152,54 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                       <span class="nav-text">Enroll</span>
                     </a>
                   </li>
-
                   <li class="">
                     <a class="sidenav-item-link" href="sitters.php">
                       <span class="nav-text">Sitters List</span>
                     </a>
                   </li>
-
                   <li class="">
                     <a class="sidenav-item-link" href="bsitters.php">
                       <span class="nav-text">Blocked Sitters</span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="viewfeedback.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">View Feedbacks</span>
+              </a>
+            </li>
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
+                <i class="mdi mdi-pencil-box-multiple"></i>
+                <span class="nav-text">Payment</span> <b class="caret"></b>
+              </a>
 
+              <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="apayment.php">
+                      <span class="nav-text">Add Payment</span>
                     </a>
                   </li>
 
+                  <li class="">
+                    <a class="sidenav-item-link" href="pu.php">
+                      <span class="nav-text">Paid Users</span>
+                    </a>
+                  </li>
 
                 </div>
               </ul>
             </li>
             <li class="has-sub active expand">
-              <a class="sidenav-item-link" href="apayment.php">
+              <a class="sidenav-item-link" href="assignsitter.php">
                 <i class="mdi mdi-view-dashboard-outline"></i>
-                <span class="nav-text">Payment</span>
+                <span class="nav-text">Assign Sitters</span>
               </a>
-            </li>
             <li class="has-sub ">
               <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
                 aria-expanded="false" aria-controls="app">
@@ -216,47 +234,29 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
               </a>
             </li>
             </li>
-            <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                aria-expanded="false" aria-controls="app">
 
-                <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                  <li class="has-sub active expand">
-                    <a class="sidenav-item-link" href="nutrition.php">
-                      <i class="mdi mdi-view-dashboard-outline"></i>
-                      <span class="nav-text">Add nutrition</span>
-                    </a>
-                  </li>
-                  <li class="has-sub active expand">
-                    <a class="sidenav-item-link" href="viewfeedback.php">
-                      <i class="mdi mdi-view-dashboard-outline"></i>
-                      <span class="nav-text">View Feedbacks</span>
-                    </a>
-
-
-                  </li>
-
-                  <li class="has-sub active expand">
-                    <a class="sidenav-item-link" href="profile.php">
-                      <i class="mdi mdi-view-dashboard-outline"></i>
-                      <span class="nav-text">My profile</span>
-                    </a>
-                  </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="addfood.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Add nutrition</span>
+              </a>
             </li>
 
+
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="profile.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">My profile</span>
+              </a>
+            </li>
+            </li>
 
             <li class="has-sub active expand">
               <a class="sidenav-item-link" href="logout.php">
                 <i class="mdi mdi-view-dashboard-outline"></i>
                 <span class="nav-text">Logout</span>
               </a>
-
-
             </li>
-
-
-
-
 
 
 
@@ -356,7 +356,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
             $daily_activites = $_POST['activites'];
             // $image = $_FILES['activity_img']['tmp_name'];
             $target_dir = "uploads/"; //saving folder
-            $target_file = $target_dir.$_FILES["activity_img"]["name"]."_.jpg"; //filename
+            $target_file = $target_dir . $_FILES["activity_img"]["name"] . "_.jpg"; //filename
             move_uploaded_file($_FILES["activity_img"]["tmp_name"], $target_file); //uploading
             $query = "INSERT INTO tbl_activites(`userid`,`date`,`actvty`,`img`) VALUES('$user_id','$a_date','$daily_activites','$target_file')";
             $query_run = mysql_query($query);
@@ -403,7 +403,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                         <option value="drawing">Drawing</option>
 
                         <option value="painting">Painting</option>
-                        
+
                         <option value="nature_play">Nature Play</option>
 
                         <option value="water_play">Water Play</option>
@@ -459,13 +459,19 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                         while ($row3 = mysql_fetch_assoc($query_run)) {
 
                           ?>
-                        <td><?php echo $row3['baby_name']; ?></td>
-                        
-                        <td><?php echo $row3['date']; ?></td>
-                        
-                        <td><?php echo $row3['actvty']; ?></td>
-                        
-                        <td><img width="100px" src="<?php echo $row3['img']; ?>"/></td>
+                          <td>
+                            <?php echo $row3['baby_name']; ?>
+                          </td>
+
+                          <td>
+                            <?php echo $row3['date']; ?>
+                          </td>
+
+                          <td>
+                            <?php echo $row3['actvty']; ?>
+                          </td>
+
+                          <td><img width="100px" src="<?php echo $row3['img']; ?>" /></td>
                         </tr>
                         <?php
                         }

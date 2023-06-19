@@ -100,7 +100,12 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
         </div>
 
         <!-- begin sidebar scrollbar -->
-        <div class="" data-simplebar style="height: 100%;">
+        
+              </a>
+
+
+            </li>
+            <div class="" data-simplebar style="height: 100%;">
           <!-- sidebar menu -->
           <ul class="nav sidebar-inner" id="sidebar-menu">
             <li class="has-sub active expand">
@@ -108,15 +113,12 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                 <i class="mdi mdi-view-dashboard-outline"></i>
                 <span class="nav-text">Dashboard</span>
               </a>
-
-
-            </li>
             <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app" aria-expanded="false" aria-controls="app">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
                 <i class="mdi mdi-pencil-box-multiple"></i>
                 <span class="nav-text">Users</span> <b class="caret"></b>
               </a>
-
               <ul class="collapse " id="app" data-parent="#sidebar-menu">
                 <div class="sub-menu">
                   <li class="">
@@ -124,29 +126,25 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                       <span class="nav-text">New Requests</span>
                     </a>
                   </li>
-
                   <li class="">
                     <a class="sidenav-item-link" href="ausers.php">
                       <span class="nav-text">Approved Users</span>
                     </a>
                   </li>
-
-                  <li class="">
-                    <a class="sidenav-item-link" href="rusers.php">
-                      <span class="nav-text">Rejected Users</span>
-                    </a>
-                  </li>
-
-
                 </div>
               </ul>
             </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="activites.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Daily Activites</span>
+              </a>
             <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components" aria-expanded="false" aria-controls="components">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
+                aria-expanded="false" aria-controls="components">
                 <i class="mdi mdi-folder-multiple-outline"></i>
                 <span class="nav-text">Baby Sitters</span> <b class="caret"></b>
               </a>
-
               <ul class="collapse " id="components" data-parent="#sidebar-menu">
                 <div class="sub-menu">
                   <li class="">
@@ -154,32 +152,57 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                       <span class="nav-text">Enroll</span>
                     </a>
                   </li>
-
                   <li class="">
                     <a class="sidenav-item-link" href="sitters.php">
                       <span class="nav-text">Sitters List</span>
                     </a>
                   </li>
-
                   <li class="">
                     <a class="sidenav-item-link" href="bsitters.php">
                       <span class="nav-text">Blocked Sitters</span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="viewfeedback.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">View Feedbacks</span>
+              </a>
+            </li>
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
+                <i class="mdi mdi-pencil-box-multiple"></i>
+                <span class="nav-text">Payment</span> <b class="caret"></b>
+              </a>
 
+              <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="apayment.php">
+                      <span class="nav-text">Add Payment</span>
                     </a>
                   </li>
 
+                  <li class="">
+                    <a class="sidenav-item-link" href="pu.php">
+                      <span class="nav-text">Paid Users</span>
+                    </a>
+                  </li>
 
                 </div>
               </ul>
             </li>
             <li class="has-sub active expand">
-              <a class="sidenav-item-link" href="apayment.php">
+              <a class="sidenav-item-link" href="assignsitter.php">
                 <i class="mdi mdi-view-dashboard-outline"></i>
-                <span class="nav-text">Payment</span>
+                <span class="nav-text">Assign Sitters</span>
               </a>
-            </li>
             <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app" aria-expanded="false" aria-controls="app">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
                 <i class="mdi mdi-pencil-box-multiple"></i>
                 <span class="nav-text"> Attendance</span> <b class="caret"></b>
               </a>
@@ -211,47 +234,14 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
               </a>
             </li>
             </li>
-            <li class="has-sub ">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app" aria-expanded="false" aria-controls="app">
-                <i class="mdi mdi-pencil-box-multiple"></i>
-                <span class="nav-text">Services</span> <b class="caret"></b>
-              </a>
 
-              <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                  <li class="">
-                    <a class="sidenav-item-link" href="aservice.php">
-                      <span class="nav-text">Add Service</span>
-                    </a>
-                  </li>
-
-                  <li class="">
-                    <a class="sidenav-item-link" href="eservices.php">
-                      <span class="nav-text">Edit Services</span>
-                    </a>
-                  </li>
-                  <li class="">
-                    <a class="sidenav-item-link" href="dservices.php">
-                      <span class="nav-text">Deleted Services</span>
-                    </a>
-                  </li>
-                </div>
-              </ul>
-            </li>
             <li class="has-sub active expand">
-              <a class="sidenav-item-link" href="nutrition.php">
+              <a class="sidenav-item-link" href="addfood.php">
                 <i class="mdi mdi-view-dashboard-outline"></i>
                 <span class="nav-text">Add nutrition</span>
               </a>
             </li>
-            <li class="has-sub active expand">
-              <a class="sidenav-item-link" href="viewfeedback.php">
-                <i class="mdi mdi-view-dashboard-outline"></i>
-                <span class="nav-text">View Feedbacks</span>
-              </a>
 
-
-            </li>
 
             <li class="has-sub active expand">
               <a class="sidenav-item-link" href="profile.php">
@@ -266,8 +256,6 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                 <i class="mdi mdi-view-dashboard-outline"></i>
                 <span class="nav-text">Logout</span>
               </a>
-
-
             </li>
 
 

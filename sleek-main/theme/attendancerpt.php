@@ -109,175 +109,151 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                 <i class="mdi mdi-view-dashboard-outline"></i>
                 <span class="nav-text">Dashboard</span>
               </a>
-
-
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
+                <i class="mdi mdi-pencil-box-multiple"></i>
+                <span class="nav-text">Users</span> <b class="caret"></b>
+              </a>
+              <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="req.php">
+                      <span class="nav-text">New Requests</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="ausers.php">
+                      <span class="nav-text">Approved Users</span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="activites.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Daily Activites</span>
+              </a>
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
+                aria-expanded="false" aria-controls="components">
+                <i class="mdi mdi-folder-multiple-outline"></i>
+                <span class="nav-text">Baby Sitters</span> <b class="caret"></b>
+              </a>
+              <ul class="collapse " id="components" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="sreg.php">
+                      <span class="nav-text">Enroll</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="sitters.php">
+                      <span class="nav-text">Sitters List</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="bsitters.php">
+                      <span class="nav-text">Blocked Sitters</span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="viewfeedback.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">View Feedbacks</span>
+              </a>
             </li>
             <li class="has-sub ">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                    aria-expanded="false" aria-controls="app">
-                    <i class="mdi mdi-pencil-box-multiple"></i>
-                    <span class="nav-text">Users</span> <b class="caret"></b>
-                  </a>
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
+                <i class="mdi mdi-pencil-box-multiple"></i>
+                <span class="nav-text">Payment</span> <b class="caret"></b>
+              </a>
 
-                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="">
-                        <a class="sidenav-item-link" href="req.php">
-                          <span class="nav-text">New Requests</span>
-                        </a>
-                      </li>
+              <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="apayment.php">
+                      <span class="nav-text">Add Payment</span>
+                    </a>
+                  </li>
 
-                      <li class="">
-                        <a class="sidenav-item-link" href="ausers.php">
-                          <span class="nav-text">Approved Users</span>
-                        </a>
-                      </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="pu.php">
+                      <span class="nav-text">Paid Users</span>
+                    </a>
+                  </li>
 
-                      <li class="">
-                        <a class="sidenav-item-link" href="rusers.php">
-                          <span class="nav-text">Rejected Users</span>
-                        </a>
-                      </li>
+                </div>
+              </ul>
+            </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="assignsitter.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Assign Sitters</span>
+              </a>
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
+                aria-expanded="false" aria-controls="app">
+                <i class="mdi mdi-pencil-box-multiple"></i>
+                <span class="nav-text"> Attendance</span> <b class="caret"></b>
+              </a>
 
-                      
-                    </div>
-                  </ul>
-                </li>
-                <li class="has-sub ">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
-                    aria-expanded="false" aria-controls="components">
-                    <i class="mdi mdi-folder-multiple-outline"></i>
-                    <span class="nav-text">Baby Sitters</span> <b class="caret"></b>
-                  </a>
+              <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li class="">
+                    <a class="sidenav-item-link" href="check-attendance.php">
+                      <span class="nav-text">Check-attendance</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="viewattendance.php">
+                      <span class="nav-text">Attendance List</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="sidenav-item-link" href="attendancerpt.php">
+                      <span class="nav-text">Attendance Report</span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
 
-                  <ul class="collapse " id="components" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="">
-                        <a class="sidenav-item-link" href="sreg.php">
-                          <span class="nav-text">Enroll</span>
-                        </a>
-                      </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="users.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Chat</span>
+              </a>
+            </li>
+            </li>
 
-                      <li class="">
-                        <a class="sidenav-item-link" href="sitters.php">
-                          <span class="nav-text">Sitters List</span>
-                        </a>
-                      </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="addfood.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">Add nutrition</span>
+              </a>
+            </li>
 
-                      <li class="">
-                        <a class="sidenav-item-link" href="bsitters.php">
-                          <span class="nav-text">Blocked Sitters</span>
 
-                        </a>
-                      </li>
-
-                     
-                    </div>
-                  </ul>
-                </li>
-                  <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="apayment.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Payment</span> 
-                  </a>
-                </li>
-                  <li class="has-sub ">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                    aria-expanded="false" aria-controls="app">
-                    <i class="mdi mdi-pencil-box-multiple"></i>
-                    <span class="nav-text">  Attendance</span> <b class="caret"></b>
-                  </a>
-
-                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="">
-                        <a class="sidenav-item-link" href="check-attendance.php">
-                          <span class="nav-text">Check-attendance</span>
-                        </a>
-                      </li>
-                      <li class="">
-                        <a class="sidenav-item-link" href="viewattendance.php">
-                          <span class="nav-text">Attendance List</span>
-                        </a>
-                      </li>
-                      <li class="">
-                        <a class="sidenav-item-link" href="attendancerpt.php">
-                          <span class="nav-text">Attendance Report</span>
-                        </a>
-                      </li>		  
-                    </div>
-                  </ul>
-                  
-                  <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="users.php">
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Chat</span> 
-                  </a>
-                </li>
-                </li>
-                 <li class="has-sub ">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                    aria-expanded="false" aria-controls="app">
-                    <i class="mdi mdi-pencil-box-multiple"></i>
-                    <span class="nav-text">Services</span> <b class="caret"></b>
-                  </a>
-
-                  <ul class="collapse " id="app" data-parent="#sidebar-menu">
-                    <div class="sub-menu">
-                      <li class="">
-                        <a class="sidenav-item-link" href="aservice.php">
-                          <span class="nav-text">Add Service</span>
-                        </a>
-                      </li>
-
-                      <li class="">
-                        <a class="sidenav-item-link" href="eservices.php">
-                          <span class="nav-text">Edit Services</span>
-                        </a>
-                      </li>  
-                     <li class="">
-                        <a class="sidenav-item-link" href="dservices.php">
-                          <span class="nav-text">Deleted Services</span>
-                        </a>
-                      </li>					  
-                    </div>
-                  </ul>
-                </li> 
-        <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="nutrition.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">Add nutrition</span> 
-                  </a>
-                </li>
-                <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="viewfeedback.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">View Feedbacks</span> 
-                  </a>
-
-                  
-                </li>
-			   
-			   <li class="has-sub active expand">
-                  <a class="sidenav-item-link" href="profile.php"  
-                    >
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="nav-text">My profile</span> 
-                  </a> 
-                </li>   
-                </li>
+            <li class="has-sub active expand">
+              <a class="sidenav-item-link" href="profile.php">
+                <i class="mdi mdi-view-dashboard-outline"></i>
+                <span class="nav-text">My profile</span>
+              </a>
+            </li>
+            </li>
 
             <li class="has-sub active expand">
               <a class="sidenav-item-link" href="logout.php">
                 <i class="mdi mdi-view-dashboard-outline"></i>
                 <span class="nav-text">Logout</span>
               </a>
-
-
             </li>
+
 
 
 
@@ -381,142 +357,158 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
           <div class="row">
             <div class="col-lg-6">
 
-<?php
-include 'dbconnect.php';
-            
-			  $uname=$_SESSION['username']; 
- 
-             $i = 1;
+              <?php
+              include 'dbconnect.php';
 
-?>
+              $uname = $_SESSION['username'];
 
-<!DOCTYPE html>
-<html lang="en">
+              $i = 1;
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-	<title>Attendance</title>
+              ?>
 
-	<style>
-		table {
-			font-family: arial, sans-serif;
-			border-collapse: collapse;
-			width: 100%;
-		}
+              <!DOCTYPE html>
+              <html lang="en">
 
-		td,
-		th {
-			border: 1px solid #dddddd;
-			text-align: left;
-			padding: 8px;
-		}
+              <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+                  rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+                  crossorigin="anonymous">
+                <title>Attendance</title>
 
-		tr:nth-child(even) {
-			background-color: #dddddd;
-		}
-	</style>
+                <style>
+                  table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                  }
 
-</head>
+                  td,
+                  th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                  }
 
-<form action="" method="post">
+                  tr:nth-child(even) {
+                    background-color: #dddddd;
+                  }
+                </style>
 
-		<p>From: </p>
-		<input type="date" name="fromdate" required> &nbsp;
-        <br><br>
-        <p>To: </p>
-        <input type="date" name="todate" required> &nbsp;
-        
-        
-        <button type="submit" name="date_submit">Search</button>
-        <div>
-  <input type="button" class="btn btn-success" value="print" onclick="PrintDiv();" />
-</div>
+              </head>
+
+              <form action="" method="post">
+
+                <p>From: </p>
+                <input type="date" name="fromdate" required> &nbsp;
+                <br><br>
+                <p>To: </p>
+                <input type="date" name="todate" required> &nbsp;
 
 
-    </form>
-    <table>
-    <tbody>
-        <th>Sl. No.</th>
-        <th>Baby Name</th>
-        <th>Date</th>
-        <th>Status</th>
-    <?php
-    if(isset($_POST['date_submit'])){
-        $from_date = $_POST['fromdate'];
-        $to_date = $_POST['todate'];
-        $date_query = mysql_query("SELECT a.baby_name, b.att_date, b.att FROM tbl_registration a INNER JOIN tbl_attendence b ON a.baby_id = b.baby AND b.att_date between '".$from_date."' AND '".$to_date."'");
-        if(mysql_num_rows($date_query)>0){
-              while($row = mysql_fetch_array($date_query))
-              {
-?>
+                <button type="submit" name="date_submit">Search</button>
+                <div>
+                  <input type="button" class="btn btn-success" value="print" onclick="PrintDiv();" />
+                </div>
 
-                          <tr>
-						  <td ><?php echo $i;?></td>
-                            <td><?php echo $row['baby_name'];?></td>
-                            <td><?php echo $row['att_date'];?></td>
-                            <td><?php echo $row['att'];?></td>
-                          </tr>
-                         <?php
-                         $i++;
-			  }
-            }
-        }else{
-            echo "<p>No records</p>"; 
-        }
-              
-?> 
- </tbody>
- </table>
- <div id="divToPrint" style="display:none;">
-  <div>
-    <h1>Attendance Report</h1>
-  <table>
-    <tbody> 
-        <th>Sl. No.</th>
-        <th>Baby Name</th>
-        <th>Date</th>
-        <th>Status</th>
-    <?php
-    if(isset($_POST['date_submit'])){
-        $from_date = $_POST['fromdate'];
-        $to_date = $_POST['todate'];
-        $date_query = mysql_query("SELECT a.baby_name, b.att_date, b.att FROM tbl_registration a INNER JOIN tbl_attendence b ON a.baby_id = b.baby AND b.att_date between '".$from_date."' AND '".$to_date."'");
-        if(mysql_num_rows($date_query)>0){
-              while($row = mysql_fetch_array($date_query))
-              {
-?>
 
-                          <tr>
-						  <td ><?php echo $i;?></td>
-                            <td><?php echo $row['baby_name'];?></td>
-                            <td><?php echo $row['att_date'];?></td>
-                            <td><?php echo $row['att'];?></td>
-                          </tr>
-                         <?php
-                         $i++;
-			  }
-            }
-        }else{
-            echo "<p>No records</p>"; 
-        }
-              
-?> 
- </tbody>
- </table>      
-  </div>
-</div>
+              </form>
+              <table>
+                <tbody>
+                  <th>Sl. No.</th>
+                  <th>Baby Name</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <?php
+                  if (isset($_POST['date_submit'])) {
+                    $from_date = $_POST['fromdate'];
+                    $to_date = $_POST['todate'];
+                    $date_query = mysql_query("SELECT a.baby_name, b.att_date, b.att FROM tbl_registration a INNER JOIN tbl_attendence b ON a.baby_id = b.baby AND b.att_date between '" . $from_date . "' AND '" . $to_date . "'");
+                    if (mysql_num_rows($date_query) > 0) {
+                      while ($row = mysql_fetch_array($date_query)) {
+                        ?>
 
-     <script type="text/javascript">     
-    function PrintDiv() {    
-       var divToPrint = document.getElementById('divToPrint');
-       var popupWin = window.open('', '_blank', 'width=1000,height=2500');
-       popupWin.document.open();
-       popupWin.document.write('<html><style>table{font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td,th{border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
-        popupWin.document.close();
-            }
+                        <tr>
+                          <td>
+                            <?php echo $i; ?>
+                          </td>
+                          <td>
+                            <?php echo $row['baby_name']; ?>
+                          </td>
+                          <td>
+                            <?php echo $row['att_date']; ?>
+                          </td>
+                          <td>
+                            <?php echo $row['att']; ?>
+                          </td>
+                        </tr>
+                        <?php
+                        $i++;
+                      }
+                    }
+                  } else {
+                    echo "<p>No records</p>";
+                  }
 
- </script>
-</div>
+                  ?>
+                </tbody>
+              </table>
+              <div id="divToPrint" style="display:none;">
+                <div>
+                  <h1>Attendance Report</h1>
+                  <table>
+                    <tbody>
+                      <th>Sl. No.</th>
+                      <th>Baby Name</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <?php
+                      if (isset($_POST['date_submit'])) {
+                        $from_date = $_POST['fromdate'];
+                        $to_date = $_POST['todate'];
+                        $date_query = mysql_query("SELECT a.baby_name, b.att_date, b.att FROM tbl_registration a INNER JOIN tbl_attendence b ON a.baby_id = b.baby AND b.att_date between '" . $from_date . "' AND '" . $to_date . "'");
+                        if (mysql_num_rows($date_query) > 0) {
+                          while ($row = mysql_fetch_array($date_query)) {
+                            ?>
+
+                            <tr>
+                              <td>
+                                <?php echo $i; ?>
+                              </td>
+                              <td>
+                                <?php echo $row['baby_name']; ?>
+                              </td>
+                              <td>
+                                <?php echo $row['att_date']; ?>
+                              </td>
+                              <td>
+                                <?php echo $row['att']; ?>
+                              </td>
+                            </tr>
+                            <?php
+                            $i++;
+                          }
+                        }
+                      } else {
+                        echo "<p>No records</p>";
+                      }
+
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <script type="text/javascript">
+                function PrintDiv() {
+                  var divToPrint = document.getElementById('divToPrint');
+                  var popupWin = window.open('', '_blank', 'width=1000,height=2500');
+                  popupWin.document.open();
+                  popupWin.document.write('<html><style>table{font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td,th{border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+                  popupWin.document.close();
+                }
+
+              </script>
+            </div>

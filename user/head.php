@@ -30,7 +30,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="sitters.php" class="nav-item nav-link">BabySitters</a>
+                <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">BabySitters</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                            <a href="sitters.php" class="dropdown-item">View BabySitters</a>
+                            <a href="assignbabysitter.php" class="dropdown-item">Assigned Babysitter</a>
+                        </div>
+                    </div>
                     <a href="feedback.php" class="nav-item nav-link">Feedback</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Attendence</a>
@@ -40,7 +46,7 @@
                         </div>
                     </div>
                     <a href="payment.php" class="nav-item nav-link">Payments</a>
-                    <a href="nutrition.php" class="nav-item nav-link">Nutritions</a>
+                    <a href="viewfood.php" class="nav-item nav-link">Nutritions</a>
                     <a href="activites.php" class="nav-item nav-link">Activites</a>
                     <a href="d.php" class="nav-item nav-link">MyProfile</a>
                     

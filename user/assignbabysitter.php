@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Kider</title>
@@ -29,6 +28,30 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+	<style>
+	#approve {
+  background-color: blue;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+#reject {
+  
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+#c {
+  
+  background-color: black;
+
+}
+</style>
 </head>
 
 <body>
@@ -49,14 +72,16 @@
         <!-- Navbar End -->
 
 
+        <?php
+   $username=$_SESSION['username'];
+  ?>
         <!-- Page Header End -->
         <div class="container-xxl py-5 page-header position-relative mb-5">
             <div class="container py-5">
-                <h1 class="display-2 text-white animated slideInDown mb-4">Login</h1>
+                <h1 class="display-2 text-white animated slideInDown mb-4">Add Feedback</h1>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Login</li>
+                        <li class="breadcrumb-item"><a href="sreg.php">Home</a></li>
                     </ol>
                 </nav>
             </div>
@@ -71,30 +96,51 @@
                
                 <div class="bg-light rounded">
                     <div class="row g-0">
-                        <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <p class="mb-4">If you haven't an account. <a href="reg.php">Register</a>.</p>
-                               	<form action="check.php" method="POST">
+                                <form action="" method="POST" enctype="multipart/form-data">
                                     <div class="row g-3">
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="email" name="username" class="form-control border-0" id="name" placeholder="Your Name" required>
-                                                <label for="name">Username</label>
+									    <div class="col-sm-12">
+                                            <div class="form-floating mb-4">
+                                               <h4>View assigned babysitter</h4>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="password" name="password" class="form-control border-0" id="email" placeholder="Your Email"
-												pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-												title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                                                <label for="email">Password</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <button class="btn btn-primary w-100 py-3" name="login" id="button" type="submit">Login</button>
+                                       </div>
+                    <div class="card-body pt-0" data-simplebar style="height: 468px;">
+                      <table class="table" style="width:900px;">
+                        <tbody>
+						<tr><th>Babysitter_Name</th><th>Baby_Name</th></tr>
+						<?php
+
+              include '../dbconnect.php';
+              $p=1;
+			  //$uname=$_SESSION['username']; 
+              $query_run = mysql_query("SELECT b.name as sitter_name, c.baby_name FROM tbl_sitterassign a JOIN tbl_sitterreg b JOIN tbl_registration c ON a.sitterid = b.sitter_id AND a.userid = c.baby_id AND c.g_mailid = '$username'");
+                        while ($row3 = mysql_fetch_assoc($query_run)) 
+              {
+?>
+<tr>
+                          <td><?php echo $row3['sitter_name']; ?></td>
+                        
+                        <td><?php echo $row3['baby_name']; ?></td>
+                        
+                       
+                        <!-- <td><img width="100px" src="../sleek-main/theme/<?php echo $row3['img']; ?>"/></td> -->
+              </tr>
+                         <?php
+			  }
+?> 
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+										
+				
+                                        <div class="col-12">
                                         </div>
                                     </div>
                                 </form>
+								
                             </div>
                         </div>
                         

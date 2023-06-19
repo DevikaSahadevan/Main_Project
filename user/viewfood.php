@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Kider</title>
@@ -29,6 +28,30 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+	<style>
+	#approve {
+  background-color: blue;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+#reject {
+  
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+#c {
+  
+  background-color: black;
+
+}
+</style>
 </head>
 
 <body>
@@ -49,14 +72,16 @@
         <!-- Navbar End -->
 
 
+        <?php
+   $username=$_SESSION['username'];
+  ?>
         <!-- Page Header End -->
         <div class="container-xxl py-5 page-header position-relative mb-5">
             <div class="container py-5">
-                <h1 class="display-2 text-white animated slideInDown mb-4">Login</h1>
+                <h1 class="display-2 text-white animated slideInDown mb-4">Add Feedback</h1>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Login</li>
+                        <li class="breadcrumb-item"><a href="sreg.php">Home</a></li>
                     </ol>
                 </nav>
             </div>
@@ -71,30 +96,60 @@
                
                 <div class="bg-light rounded">
                     <div class="row g-0">
-                        <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <p class="mb-4">If you haven't an account. <a href="reg.php">Register</a>.</p>
-                               	<form action="check.php" method="POST">
+                                <form action="" method="POST" enctype="multipart/form-data">
                                     <div class="row g-3">
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="email" name="username" class="form-control border-0" id="name" placeholder="Your Name" required>
-                                                <label for="name">Username</label>
+									    <div class="col-sm-12">
+                                            <div class="form-floating mb-4">
+                                               <h4>View Daily Food</h4>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="password" name="password" class="form-control border-0" id="email" placeholder="Your Email"
-												pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-												title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                                                <label for="email">Password</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <button class="btn btn-primary w-100 py-3" name="login" id="button" type="submit">Login</button>
+                                       </div>
+                    <div class="card-body pt-0" data-simplebar style="height: 468px;">
+                      <table class="table" style="width:900px;">
+                        <tbody>
+						<tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Evening Snacks</th></tr>
+						<?php
+
+              include '../dbconnect.php';
+              $p=1;
+			  //$uname=$_SESSION['username']; 
+              $query_run = mysql_query("SELECT * FROM tbl_fooditems");
+                        while ($row3 = mysql_fetch_assoc($query_run)) 
+              {
+?>
+<tr>
+<td>
+                            <?php echo $row3['day']; ?>
+                          </td>
+
+                          <td>
+                            <?php echo $row3['f_breakfast']; ?>
+                          </td>
+
+                          <td>
+                            <?php echo $row3['f_lunch']; ?>
+                          </td>
+
+                          <td>
+                            <?php echo $row3['f_evngsnack']; ?>
+                          </td>
+              </tr>
+                         <?php
+			  }
+?> 
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+										
+				
+                                        <div class="col-12">
                                         </div>
                                     </div>
                                 </form>
+								
                             </div>
                         </div>
                         

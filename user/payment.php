@@ -501,11 +501,12 @@ $u_id=$rq['baby_id'];
 								<li>Meals & Snacks</li>
                                 <li>Age specific classrooms</li>-->
                                 <?php
-                                $amts="SELECT * FROM `tbl_payamount` WHERE `user_id`='$u_id'";
+                                $amts="SELECT * FROM `tbl_payamount` WHERE `user_id`='$u_id' AND new_pay = '0'";
                                 $ammt=mysql_query($amts,$con);
                                 while($rqs = mysql_fetch_array($ammt)){
+                                    $id = $rqs['pa_id'];
                                 $pay_id=$rqs['pay_amount'];}
-                                $checkpay =mysql_query("SELECT * FROM tbl_payment WHERE user = '{$_SESSION['username']}'");
+                                $checkpay =mysql_query("SELECT a.*,b.* FROM tbl_payment a JOIN tbl_payamount b ON a.pa_id = b.pa_id AND a.user = '{$_SESSION['username']}'");
                                 if(mysql_num_rows($checkpay)>0){
                                     echo "<span style='font-size:40px;color:black;'>PAID</span>";
                                     
@@ -529,6 +530,7 @@ $u_id=$rq['baby_id'];
 								<li>
                                     <input type="hidden" id="uname" name="uname" value="<?php echo $us;?>">
                                     <input type="hidden" id="paid" name="paid" value="<?php echo $pay_id;?>">
+                                    <input type="hidden" id="id" name="id" value="<?php echo $id;?>">
 									<button id="pay_button_weekly" name="pay" onclick="pay_now();">Pay Now</button>
 								</li>
                                     <?php
@@ -633,6 +635,7 @@ $u_id=$rq['baby_id'];
         function pay_now() {
             var user = document.getElementById("uname").value;
             var amt = document.getElementById("paid").value;
+            var id = document.getElementById("id").value;
             // alert(user);
             // alert(amt);
             var options = {
@@ -652,6 +655,7 @@ $u_id=$rq['baby_id'];
                             payment_id: pid,
                             amt: amt,
                             user: user,
+                            id: id,
                         },
                         success: function(result) {
                             window.location.href="payment.php";

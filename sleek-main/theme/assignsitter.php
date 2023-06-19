@@ -1,10 +1,14 @@
 <?php
+error_reporting(0);
 session_start();
 //authorization
+include 'dbconnect.php';
 if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
   echo "<script>alert('You are not authorized to view this page!');</script>";
   echo "<script>location.href='../../index.php';</script>";
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -63,7 +67,9 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
 
 <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
   <script>
-    NProgress.configure({ showSpinner: false });
+    NProgress.configure({
+      showSpinner: false
+    });
     NProgress.start();
   </script>
 
@@ -192,7 +198,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
               </ul>
             </li>
             <li class="has-sub active expand">
-              <a class="sidenav-item-link" href="assignsitter.php">
+              <a class="sidenav-item-link" href=".php">
                 <i class="mdi mdi-view-dashboard-outline"></i>
                 <span class="nav-text">Assign Sitters</span>
               </a>
@@ -253,6 +259,8 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
                 <span class="nav-text">Logout</span>
               </a>
             </li>
+
+
 
 
 
@@ -333,9 +341,6 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
         </nav>
       </header>
 
-
-
-
       <!-- ====================================
           ——— CONTENT WRAPPER
           ===================================== -->
@@ -349,101 +354,209 @@ if (!isset($_SESSION['username']) || $_SESSION['user'] != 'admin') {
 
           <!-- Top Statistics -->
 
+          <?php
+          if (isset($_POST['add_assignsitter'])) {
+
+            // $id = autoid("tbl_tbl_sitterassign", "baby_id");
+            $user_id = $_POST['user_id'];
+            $sitter_id = $_POST['sitter_id'];
 
 
-
-
+            // $image = $_FILES['activity_img']['tmp_name'];
+//uploading
+            $query = "INSERT INTO tbl_sitterassign(`userid`,`sitterid`) VALUES('$user_id','$sitter_id')";
+            $query_run = mysql_query($query);
+          }
+          ?>
           <div class="row">
             <div class="col-lg-6">
 
-<?php
+              <form action="" method="POST">
+                <div class="card card-default">
+                  <div class="card-header card-header-border-bottom">
+                    <h2>Assign Babysitter</h2>
+                  </div>
+                  <div class="col-sm-12 mb-3">
+                    <label class="text-dark font-weight-medium" for="">Babysitter</label>
+                    <select name="sitter_id" id="sitter_id" class="form-control" required>
+                      <option value="" selected disabled> Select Babysitter</option>
+                      <?php
+                      $query = "SELECT sitter_id, name FROM tbl_sitterreg";
+                      $query_run = mysql_query($query);
+                      while ($row = mysql_fetch_assoc($query_run)) {
 
-include 'dbconnect.php';
+                        ?>
+                        <option value="<?php echo $row['sitter_id'] ?>"><?php echo $row['name'] ?></option>
+                        <?php
+                      }
+                      ?>
 
-$baby_res = mysql_query("SELECT a.*, b.* from tbl_registration a INNER JOIN tbl_attendence b ON a.baby_id=b.baby");
+                    </select>
+                  </div>
+                  <div class="col-sm-12 mb-3">
+                    <label class="text-dark font-weight-medium" for="">User</label>
+                    <select name="user_id" id="user_id" class="form-control" required>
+                      <option value="" selected disabled> Select User</option>
+                      <?php
+                      $query = "SELECT baby_id, baby_name FROM tbl_registration";
+                      $query_run = mysql_query($query);
+                      while ($row = mysql_fetch_assoc($query_run)) {
 
-?>
+                        ?>
+                        <option value="<?php echo $row['baby_id'] ?>"><?php echo $row['baby_name'] ?></option>
+                        <?php
+                      }
+                      ?>
 
-<!DOCTYPE html>
-<html lang="en">
+                    </select>
+                    <button class="my-1 btn btn-sm btn-success mt-1" name="add_assignsitter" type="submit">Assign
+                      Babysitter</button>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Attendance</title>
+                  </div>
+                </div>
+              </form>
 
-	<style>
-		table {
-			font-family: arial, sans-serif;
-			border-collapse: collapse;
-			width: 100%;
-		}
+            </div>
+            <div class="card card-table-border-none">
+              <div class="card-header justify-content-between ">
+                <h2>Assign sitters</h2>
 
-		td,
-		th {
-			border: 1px solid #dddddd;
-			text-align: left;
-			padding: 8px;
-		}
+              </div>
 
-		tr:nth-child(even) {
-			background-color: #dddddd;
-		}
-	</style>
+              <div class="card-body pt-0" data-simplebar="" style="height:100%;">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th>Babysitter Name</th>
+                      <th>Baby Name</th>
+                      <th>Action</th>
+                    </tr>
+                    <?php
+                    $query_run = mysql_query("SELECT a.*, b.name as sitter_name, c.baby_name FROM tbl_sitterassign a JOIN tbl_sitterreg b JOIN tbl_registration c ON a.sitterid = b.sitter_id AND a.userid = c.baby_id");
+                    while ($row3 = mysql_fetch_assoc($query_run)) {
+                      ?>
 
-</head>
+                      <tr>
+                        <td>
+                          <?php echo $row3['sitter_name']; ?>
+                        </td>
 
-<body>
-<?php
-if(isset($_POST['date_submit'])){
-    $date = $_POST['date'];
-    $baby_res = mysql_query("SELECT a.*, b.* from tbl_registration a INNER JOIN tbl_attendence b ON a.baby_id=b.baby and b.att_date='$date'");
-}
+                        <td>
+                          <?php echo $row3['baby_name']; ?>
+                        </td>
+                        <form action="editsitter.php" method="post">
+                          <td>
+                            <button type="submit" name="submit_edit" value="<?php echo $row3['asitterid'] ?>"
+                              class="btn btn-warning">Edit</button>
 
-?>
-	<form action="" method="post">
-		<p>Select date: </p>
-		<input type="date" name="date" required> &nbsp;
-        <button type="submit" name="date_submit">Search</button>
-        <br><br>
+                          </td>
+                        </form>
+                      </tr>
+                      <?php
+                    }
+                    ?>
+                  </tbody>
+                </table>
+              </div>
 
-    </form>
-		<table>
-			<tr>
-
-				<th>Baby Name</th>
-				<th>Baby Gender</th>
-				<th>Date of Birth</th>
-				<th>Attendance date</th>
-			</tr>
-			<?php
-
-
-			while ($row = mysql_fetch_array($baby_res)) {
-				?>
-				<tr>
-					<td>
-						<?php echo $row['baby_name']; ?>
-					</td>
-					<td>
-						<?php echo $row['b_gender']; ?>
-					</td>
-					<td>
-						<?php echo $row['b_dob']; ?>
-					</td>
-					<td>
-						<?php echo $row['att_date']; ?>
-					</td>
+            </div>
 
 
 
 
-		</tr>
-		<?php
-			}
-			?>
-	</table>
+
+
+
+
+
+
+
+
+
+
+
+          </div> <!-- End Content -->
+        </div> <!-- End Content Wrapper -->
+
+
+        <!-- Footer -->
+
+
+      </div> <!-- End Page Wrapper -->
+    </div> <!-- End Wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div> <!-- End Content -->
+  </div> <!-- End Content Wrapper -->
+
+
+  <!-- Footer -->
+
+
+  </div> <!-- End Page Wrapper -->
+  </div> <!-- End Wrapper -->
+
+
+  <!-- <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+      const el = document.createElement('pwa-update');
+      document.body.appendChild(el);
+    </script> -->
+
+  <!-- Javascript -->
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/plugins/simplebar/simplebar.min.js"></script>
+
+  <script src='assets/plugins/charts/Chart.min.js'></script>
+  <script src='assets/js/chart.js'></script>
+
+
+
+
+  <script src='assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js'></script>
+  <script src='assets/plugins/jvectormap/jquery-jvectormap-world-mill.js'></script>
+  <script src='assets/js/vector-map.js'></script>
+
+  <script src='assets/plugins/daterangepicker/moment.min.js'></script>
+  <script src='assets/plugins/daterangepicker/daterangepicker.js'></script>
+  <script src='assets/js/date-range.js'></script>
+
+
+
+
+
+
+
+
+  <script src='assets/plugins/toastr/toastr.min.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="assets/js/sleek.js"></script>
+  <link href="assets/options/optionswitch.css" rel="stylesheet">
+  <script src="assets/options/optionswitcher.js"></script>
 </body>
 
-</html> 
+</html>
